@@ -1,0 +1,750 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+	Last Testamnt of Wanderers 
+	Copyright (C) 2019 - 2021 wotoTeam, TeaInside
+	This file is subject to the terms and conditions defined in
+	file 'LICENSE', which is part of the source code.
+-->
+<root>
+            <!--The Hero List-->
+  <!--  Name        HeroID        Element       Type        Skills  
+  ================================================================================
+  Johnny Black      1001          Dark          Common      Poison, Deadly Poison.
+  Red-Eyed XaXa     1002          Dark          Common      Slaughter, The Sand Area
+  
+  Sachi             2001          Earth         Common      Straight Lunging, Spear Strike
+  Caynz             2002          Earth         Common      Sword and Shield Mastery, Toughness
+  
+  Sasamaru          3001          Fire          Common      Half Moon Slash, Triple Stabbing
+  Klein [Katana]    3002          Fire          Common      Ether Strike, Power Flame Slash
+  
+  Tetsuo            4001          Light         Common      Hammer Strike, Thunder Hammer
+  Diavel            4002          Light         Common      Righteous Strike, Knight's Spirit
+  
+  Kirito [Newbie]   5001          Water         Common      Crescent Slash, Horizontal Square
+  Sasha             5002          Water         Common      Healing, Blessing of the God
+  
+  Asuna [Cape]      6001          Wind          Common      Shooting Star, Parallel Sting
+  Ducker            6002          Wind          Common      Assualt, Sharp Dagger
+  
+  
+  Keita             7001          Plasma        Common      Whirling Strike, Quick Hit
+  
+  -->
+  
+  
+  <!--Info-->
+  <!--
+  This is a file where you can find how to create Heroes,
+  Generate and other works with the examples.
+      ーーThe Diary
+  
+  
+  -> BY: Ali woto, 26 / 11 / 2020 | 11:59 A.M
+  __________________________________________________
+  
+  -->
+  <!--ーーーーーーーーーーーーーーーーーーーーーーーーーー-->
+  
+  <!--Johnny Black-->
+  <!--
+  Hero.CreateHero(
+                HeroSerialize.GenerateHeroSerialize(
+                    "1001", "Johnny Black",
+                    HeroSkill.GenerateHeroSkill(
+                        new Skill[]
+                        {
+                            Skill.GenerateSkill("Poison", // The Skill Name
+                            0, // This is the Skill index
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(0), // Skill HP Rate
+                                    new Unit(12), // Skill ATK Rate
+                                    new Unit(8),// Skill INT Rate
+                                    new Unit(0),// Skill DEF Rate
+                                    new Unit(8),// Skill RES Rate
+                                    new Unit(1),// Skill SPD Rate
+                                    new Unit(1),// Skill PEN Rate
+                                    new Unit(0)),// Skill Block Rate
+                                "1001", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\1031.png" // Skill Image
+                                ),
+                            Skill.GenerateSkill("Deadly Poison", // This is the Skill Name
+                            1, // This is the Skill index.
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(0), // Skill HP Rate
+                                    new Unit(24), // Skill ATK Rate
+                                    new Unit(16), // Skill INT Rate
+                                    new Unit(0), // Skill DEF Rate
+                                    new Unit(2), // Skill RES Rate
+                                    new Unit(6), // Skill SPD Rate
+                                    new Unit(2), // Skill PEN Rate
+                                    new Unit(0)), // Skill Block Rate
+                                "1001", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\2031.png") // Skill's Image
+                        }
+                            ).GetForSerialize(), 
+                    2,  // This is Skill's Count
+                    WotoProvider.Enums.HeroType.CommonHero,
+                             GameObjects.Players.PlayerElement.DarkMatter,
+                             new Unit(4), // HP Rate
+                             new Unit(18), // ATK Rate
+                             new Unit(16), // INT Rate
+                             new Unit(1), // DEF Rate
+                             new Unit(2), // RES Rate
+                             new Unit(6), // SPD Rate
+                             new Unit(4), // PEN Rate
+                             new Unit(1), // Block Rate
+                             @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Heroes_580_500\1031.png"
+                                    ));
+  -->
+  <!--Red-Eyed XaXa-->
+  <!--
+   Hero.CreateHero(
+                HeroSerialize.GenerateHeroSerialize(
+                    "1002", "Red-Eyed XaXa",
+                    HeroSkill.GenerateHeroSkill(
+                        new Skill[]
+                        {
+                            Skill.GenerateSkill("Slaughter", // The Skill Name
+                            0, // This is the Skill index
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(1), // Skill HP Rate
+                                    new Unit(8), // Skill ATK Rate
+                                    new Unit(2),// Skill INT Rate
+                                    new Unit(0),// Skill DEF Rate
+                                    new Unit(1),// Skill RES Rate
+                                    new Unit(4),// Skill SPD Rate
+                                    new Unit(2),// Skill PEN Rate
+                                    new Unit(0)),// Skill Block Rate
+                                "1002", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\1029.png" // Skill Image
+                                ),
+                            Skill.GenerateSkill("The Sand Area", // This is the Skill Name
+                            1, // This is the Skill index.
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(0), // Skill HP Rate
+                                    new Unit(16), // Skill ATK Rate
+                                    new Unit(1), // Skill INT Rate
+                                    new Unit(0), // Skill DEF Rate
+                                    new Unit(2), // Skill RES Rate
+                                    new Unit(10), // Skill SPD Rate
+                                    new Unit(2), // Skill PEN Rate
+                                    new Unit(1)), // Skill Block Rate
+                                "1002", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\2029.png") // Skill's Image
+                        }
+                            ).GetForSerialize(), 
+                    2,  // This is Skill's Count
+                    WotoProvider.Enums.HeroType.CommonHero,
+                             GameObjects.Players.PlayerElement.DarkMatter,
+                             new Unit(12), // HP Rate
+                             new Unit(18), // ATK Rate
+                             new Unit(1), // INT Rate
+                             new Unit(4), // DEF Rate
+                             new Unit(2), // RES Rate
+                             new Unit(6), // SPD Rate
+                             new Unit(1), // PEN Rate
+                             new Unit(8), // Block Rate
+                             @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Heroes_580_500\1029.png"
+                                    ));
+  
+  
+  -->
+  <!--ーーーーーーーーーーーーーーーーーーーーーーーーーー-->
+  <!--Sachi-->
+  <!--
+  
+  Hero.CreateHero(
+                HeroSerialize.GenerateHeroSerialize(
+                    "2001", "Sachi",
+                    HeroSkill.GenerateHeroSkill(
+                        new Skill[]
+                        {
+                            Skill.GenerateSkill("Straight Lunging", // Skill's name
+                            0, // Skill's index
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(0), // Skill HP Rate
+                                    new Unit(6), // Skill ATK Rate
+                                    new Unit(4),// Skill INT Rate
+                                    new Unit(3),// Skill DEF Rate
+                                    new Unit(6),// Skill RES Rate
+                                    new Unit(2),// Skill SPD Rate
+                                    new Unit(3),// Skill PEN Rate
+                                    new Unit(4)),// Skill Block Rate
+                                "2001",
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\1019.png" // Skills Image
+                                ),
+                            Skill.GenerateSkill("Spear Strike", // Skill's name
+                            1, // Skill's index
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(1), // Skill HP Rate
+                                    new Unit(20), // Skill ATK Rate
+                                    new Unit(12), // Skill INT Rate
+                                    new Unit(0), // Skill DEF Rate
+                                    new Unit(5), // Skill RES Rate
+                                    new Unit(6), // Skill SPD Rate
+                                    new Unit(3), // Skill PEN Rate
+                                    new Unit(0)), // Skill Block Rate
+                                "2001",
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\2019.png") // Skill's Image
+                        }
+                            ).GetForSerialize(), 
+                    2, // Count of Skills
+                    WotoProvider.Enums.HeroType.CommonHero,
+                             GameObjects.Players.PlayerElement.EarthElement,
+                             new Unit(10), // HP Rate
+                             new Unit(6), // ATK Rate
+                             new Unit(6), // INT Rate
+                             new Unit(10), // DEF Rate
+                             new Unit(6), // RES Rate
+                             new Unit(14), // SPD Rate
+                             new Unit(10), // PEN Rate
+                             new Unit(15), // Block Rate
+                             @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Heroes_580_500\1019.png" // Hero's Image
+                                    ));
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  -->
+  <!--Caynz-->
+  <!--
+  Hero.CreateHero(
+                HeroSerialize.GenerateHeroSerialize(
+                    "2002", "Caynz",
+                    HeroSkill.GenerateHeroSkill(
+                        new Skill[]
+                        {
+                            Skill.GenerateSkill("Sword and Shield Mastery", // The Skill Name
+                            0, // This is the Skill index
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(4), // Skill HP Rate
+                                    new Unit(4), // Skill ATK Rate
+                                    new Unit(0),// Skill INT Rate
+                                    new Unit(4),// Skill DEF Rate
+                                    new Unit(1),// Skill RES Rate
+                                    new Unit(2),// Skill SPD Rate
+                                    new Unit(0),// Skill PEN Rate
+                                    new Unit(8)),// Skill Block Rate
+                                "2002", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\14009.png" // Skill Image
+                                ),
+                            Skill.GenerateSkill("Toughness", // This is the Skill Name
+                            1, // This is the Skill index.
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(8), // Skill HP Rate
+                                    new Unit(4), // Skill ATK Rate
+                                    new Unit(1), // Skill INT Rate
+                                    new Unit(16), // Skill DEF Rate
+                                    new Unit(2), // Skill RES Rate
+                                    new Unit(1), // Skill SPD Rate
+                                    new Unit(2), // Skill PEN Rate
+                                    new Unit(12)), // Skill Block Rate
+                                "2002", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\5037.png") // Skill's Image
+                        }
+                            ).GetForSerialize(), 
+                    2,  // This is Skill's Count
+                    WotoProvider.Enums.HeroType.CommonHero,
+                    GameObjects.Players.PlayerElement.EarthElement,
+                             new Unit(12), // HP Rate
+                             new Unit(4), // ATK Rate
+                             new Unit(1), // INT Rate
+                             new Unit(8), // DEF Rate
+                             new Unit(4), // RES Rate
+                             new Unit(2), // SPD Rate
+                             new Unit(1), // PEN Rate
+                             new Unit(10), // Block Rate
+                             @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Heroes_580_500\1037.png"
+                                    ));
+  
+  
+  -->
+  <!--ーーーーーーーーーーーーーーーーーーーーーーーーーー-->
+  <!--Sasamaru-->
+  <!--
+  Hero.CreateHero(
+                HeroSerialize.GenerateHeroSerialize(
+                    "3001", "Sasamaru",
+                    HeroSkill.GenerateHeroSkill(
+                        new Skill[]
+                        {
+                            Skill.GenerateSkill("Half Moon Slash", // The Skill Name
+                            0, // This is the Skill index
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(1), // Skill HP Rate
+                                    new Unit(8), // Skill ATK Rate
+                                    new Unit(6),// Skill INT Rate
+                                    new Unit(1),// Skill DEF Rate
+                                    new Unit(8),// Skill RES Rate
+                                    new Unit(4),// Skill SPD Rate
+                                    new Unit(4),// Skill PEN Rate
+                                    new Unit(1)),// Skill Block Rate
+                                "3001", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\1023.png" // Skill Image
+                                ),
+                            Skill.GenerateSkill("Triple Stabbing", // This is the Skill Name
+                            1, // This is the Skill index.
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(0), // Skill HP Rate
+                                    new Unit(24), // Skill ATK Rate
+                                    new Unit(6), // Skill INT Rate
+                                    new Unit(1), // Skill DEF Rate
+                                    new Unit(8), // Skill RES Rate
+                                    new Unit(6), // Skill SPD Rate
+                                    new Unit(6), // Skill PEN Rate
+                                    new Unit(0)), // Skill Block Rate
+                                "3001", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\2023.png") // Skill's Image
+                        }
+                            ).GetForSerialize(), 
+                    2,  // This is Skill's Count
+                    WotoProvider.Enums.HeroType.CommonHero,
+                             GameObjects.Players.PlayerElement.FireElement,
+                             new Unit(4), // HP Rate
+                             new Unit(16), // ATK Rate
+                             new Unit(16), // INT Rate
+                             new Unit(2), // DEF Rate
+                             new Unit(18), // RES Rate
+                             new Unit(6), // SPD Rate
+                             new Unit(6), // PEN Rate
+                             new Unit(4), // Block Rate
+                             @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Heroes_580_500\1023.png"
+                                    ));
+-->
+  <!--Klein [Katana]-->
+  <!--
+  Hero.CreateHero(
+                HeroSerialize.GenerateHeroSerialize(
+                    "3002", "Klein [Katana]",
+                    HeroSkill.GenerateHeroSkill(
+                        new Skill[]
+                        {
+                            Skill.GenerateSkill("Ether Strike", // The Skill Name
+                            0, // This is the Skill index
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(0), // Skill HP Rate
+                                    new Unit(6), // Skill ATK Rate
+                                    new Unit(2),// Skill INT Rate
+                                    new Unit(1),// Skill DEF Rate
+                                    new Unit(0),// Skill RES Rate
+                                    new Unit(4),// Skill SPD Rate
+                                    new Unit(1),// Skill PEN Rate
+                                    new Unit(0)),// Skill Block Rate
+                                "3002", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\1015.png" // Skill Image
+                                ),
+                            Skill.GenerateSkill("Power Flame Slash", // This is the Skill Name
+                            1, // This is the Skill index.
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(0), // Skill HP Rate
+                                    new Unit(16), // Skill ATK Rate
+                                    new Unit(4), // Skill INT Rate
+                                    new Unit(0), // Skill DEF Rate
+                                    new Unit(4), // Skill RES Rate
+                                    new Unit(8), // Skill SPD Rate
+                                    new Unit(4), // Skill PEN Rate
+                                    new Unit(0)), // Skill Block Rate
+                                "3002", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\2015.png") // Skill's Image
+                        }
+                            ).GetForSerialize(), 
+                    2,  // This is Skill's Count
+                    WotoProvider.Enums.HeroType.CommonHero,
+                    GameObjects.Players.PlayerElement.FireElement,
+                             new Unit(6), // HP Rate
+                             new Unit(10), // ATK Rate
+                             new Unit(6), // INT Rate
+                             new Unit(4), // DEF Rate
+                             new Unit(2), // RES Rate
+                             new Unit(8), // SPD Rate
+                             new Unit(4), // PEN Rate
+                             new Unit(4), // Block Rate
+                             @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Heroes_580_500\1015.png"
+                                    ));
+  
+  -->
+  <!--ーーーーーーーーーーーーーーーーーーーーーーーーーー-->
+  <!--Tetsuo-->
+  <!--
+  Hero.CreateHero(
+                HeroSerialize.GenerateHeroSerialize(
+                    "4001", "Tetsuo",
+                    HeroSkill.GenerateHeroSkill(
+                        new Skill[]
+                        {
+                            Skill.GenerateSkill("Hammer Strike", // The Skill Name
+                            0, // This is the Skill index
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(0), // Skill HP Rate
+                                    new Unit(4), // Skill ATK Rate
+                                    new Unit(8),// Skill INT Rate
+                                    new Unit(0),// Skill DEF Rate
+                                    new Unit(4),// Skill RES Rate
+                                    new Unit(8),// Skill SPD Rate
+                                    new Unit(2),// Skill PEN Rate
+                                    new Unit(0)),// Skill Block Rate
+                                "4001", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\1021.png" // Skill Image
+                                ),
+                            Skill.GenerateSkill("Thunder Hammer", // This is the Skill Name
+                            1, // This is the Skill index.
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(0), // Skill HP Rate
+                                    new Unit(4), // Skill ATK Rate
+                                    new Unit(16), // Skill INT Rate
+                                    new Unit(0), // Skill DEF Rate
+                                    new Unit(6), // Skill RES Rate
+                                    new Unit(10), // Skill SPD Rate
+                                    new Unit(2), // Skill PEN Rate
+                                    new Unit(0)), // Skill Block Rate
+                                "4001", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\2021.png") // Skill's Image
+                        }
+                            ).GetForSerialize(), 
+                    2,  // This is Skill's Count
+                    WotoProvider.Enums.HeroType.CommonHero,
+                             GameObjects.Players.PlayerElement.LightElement,
+                             new Unit(6), // HP Rate
+                             new Unit(4), // ATK Rate
+                             new Unit(18), // INT Rate
+                             new Unit(1), // DEF Rate
+                             new Unit(4), // RES Rate
+                             new Unit(16), // SPD Rate
+                             new Unit(2), // PEN Rate
+                             new Unit(2), // Block Rate
+                             @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Heroes_580_500\1021.png"
+                                    ));
+            
+  
+  
+  
+  -->
+  <!--Diavel-->
+  <!--
+  Hero.CreateHero(
+                HeroSerialize.GenerateHeroSerialize(
+                    "4002", "Diavel",
+                    HeroSkill.GenerateHeroSkill(
+                        new Skill[]
+                        {
+                            Skill.GenerateSkill("Righteous Strike", // The Skill Name
+                            0, // This is the Skill index
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(0), // Skill HP Rate
+                                    new Unit(4), // Skill ATK Rate
+                                    new Unit(6),// Skill INT Rate
+                                    new Unit(1),// Skill DEF Rate
+                                    new Unit(0),// Skill RES Rate
+                                    new Unit(6),// Skill SPD Rate
+                                    new Unit(1),// Skill PEN Rate
+                                    new Unit(0)),// Skill Block Rate
+                                "4002", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\3039.png" // Skill Image
+                                ),
+                            Skill.GenerateSkill("Knight's Spirit", // This is the Skill Name
+                            1, // This is the Skill index.
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(0), // Skill HP Rate
+                                    new Unit(12), // Skill ATK Rate
+                                    new Unit(4), // Skill INT Rate
+                                    new Unit(0), // Skill DEF Rate
+                                    new Unit(4), // Skill RES Rate
+                                    new Unit(14), // Skill SPD Rate
+                                    new Unit(4), // Skill PEN Rate
+                                    new Unit(0)), // Skill Block Rate
+                                "4002", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\5039.png") // Skill's Image
+                        }
+                            ).GetForSerialize(), 
+                    2,  // This is Skill's Count
+                    WotoProvider.Enums.HeroType.CommonHero,
+                    GameObjects.Players.PlayerElement.LightElement,
+                             new Unit(6), // HP Rate
+                             new Unit(10), // ATK Rate
+                             new Unit(6), // INT Rate
+                             new Unit(4), // DEF Rate
+                             new Unit(2), // RES Rate
+                             new Unit(12), // SPD Rate
+                             new Unit(4), // PEN Rate
+                             new Unit(2), // Block Rate
+                             @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Heroes_580_500\1039.png"
+                                    ));
+  
+  -->
+  <!--ーーーーーーーーーーーーーーーーーーーーーーーーーー-->
+  <!--Kirito [Newbie]-->
+  <!--So, for starting let us see how we created Kirito [Newbie]:
+  
+  
+  Hero.CreateHero(
+                HeroSerialize.GenerateHeroSerialize(
+                    "5001", "Kirito [Newbie]",
+                    HeroSkill.GenerateHeroSkill(
+                        new Skill[]
+                        {
+                            Skill.GenerateSkill("Crescent Slash", 0,
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(4), // Skill HP Rate
+                                    new Unit(10), // Skill ATK Rate
+                                    new Unit(5), // Skill INT Rate
+                                    new Unit(0), // Skill DEF Rate
+                                    new Unit(3), // Skill RES Rate
+                                    new Unit(4), // Skill SPD Rate
+                                    new Unit(2), // Skill PEN Rate
+                                    new Unit(0)), // Skill Block Rate
+                                "5001",
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\Used\1001.png"
+                                ),
+                            Skill.GenerateSkill("Horizontal Square", 1,
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(1), // Skill HP Rate
+                                    new Unit(20), // Skill ATK Rate
+                                    new Unit(10), // Skill INT Rate
+                                    new Unit(0), // Skill DEF Rate
+                                    new Unit(3), // Skill RES Rate
+                                    new Unit(6), // Skill SPD Rate
+                                    new Unit(3), // Skill PEN Rate
+                                    new Unit(0)), // Skill Block Rate
+                                "5001",
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\Used\2001.png")
+                        }
+                            ).GetForSerialize(), 2, WotoProvider.Enums.HeroType.CommonHero,
+                             GameObjects.Players.PlayerElement.WaterElement,
+                             new Unit(11), // HP Rate
+                             new Unit(20), // ATK Rate
+                             new Unit(10), // INT Rate
+                             new Unit(8), // DEF Rate
+                             new Unit(4), // RES Rate
+                             new Unit(16), // SPD Rate
+                             new Unit(3), // PEN Rate
+                             new Unit(5), // Block Rate
+                                    @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Heroes_580_500\Used\1001.png"
+                                    ));
+  
+  
+  
+  
+  
+  
+  
+  -->
+  <!--Sasha-->
+  <!--
+  Hero.CreateHero(
+                HeroSerialize.GenerateHeroSerialize(
+                    "5002", "Sasha",
+                    HeroSkill.GenerateHeroSkill(
+                        new Skill[]
+                        {
+                            Skill.GenerateSkill("Healing", // The Skill Name
+                            0, // This is the Skill index
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(8), // Skill HP Rate
+                                    new Unit(0), // Skill ATK Rate
+                                    new Unit(0),// Skill INT Rate
+                                    new Unit(6),// Skill DEF Rate
+                                    new Unit(0),// Skill RES Rate
+                                    new Unit(6),// Skill SPD Rate
+                                    new Unit(0),// Skill PEN Rate
+                                    new Unit(6)),// Skill Block Rate
+                                "5002", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\1041.png" // Skill Image
+                                ),
+                            Skill.GenerateSkill("Blessing of the God", // This is the Skill Name
+                            1, // This is the Skill index.
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(16), // Skill HP Rate
+                                    new Unit(0), // Skill ATK Rate
+                                    new Unit(0), // Skill INT Rate
+                                    new Unit(12), // Skill DEF Rate
+                                    new Unit(0), // Skill RES Rate
+                                    new Unit(10), // Skill SPD Rate
+                                    new Unit(0), // Skill PEN Rate
+                                    new Unit(14)), // Skill Block Rate
+                                "5002", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\2041.png") // Skill's Image
+                        }
+                            ).GetForSerialize(), 
+                    2,  // This is Skill's Count
+                    WotoProvider.Enums.HeroType.CommonHero,
+                    GameObjects.Players.PlayerElement.WaterElement,
+                             new Unit(20), // HP Rate
+                             new Unit(0), // ATK Rate
+                             new Unit(0), // INT Rate
+                             new Unit(14), // DEF Rate
+                             new Unit(2), // RES Rate
+                             new Unit(12), // SPD Rate
+                             new Unit(1), // PEN Rate
+                             new Unit(8), // Block Rate
+                             @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Heroes_580_500\1041.png"
+                                    ));
+  -->
+  <!--ーーーーーーーーーーーーーーーーーーーーーーーーーー-->
+  <!--Asuna [Cape]-->
+  <!--
+    Hero.CreateHero(
+                HeroSerialize.GenerateHeroSerialize(
+                    "6001", "Asuna [Cape]",
+                    HeroSkill.GenerateHeroSkill(
+                        new Skill[]
+                        {
+                            Skill.GenerateSkill("Shooting Star", 0,
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(0), // Skill HP Rate
+                                    new Unit(12), // Skill ATK Rate
+                                    new Unit(6),// Skill INT Rate
+                                    new Unit(0),// Skill DEF Rate
+                                    new Unit(5),// Skill RES Rate
+                                    new Unit(5),// Skill SPD Rate
+                                    new Unit(2),// Skill PEN Rate
+                                    new Unit(0)),// Skill Block Rate
+                                "6001",
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\Used\1005.png"
+                                ),
+                            Skill.GenerateSkill("Parallel Sting", 1,
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(1), // Skill HP Rate
+                                    new Unit(20), // Skill ATK Rate
+                                    new Unit(12), // Skill INT Rate
+                                    new Unit(0), // Skill DEF Rate
+                                    new Unit(5), // Skill RES Rate
+                                    new Unit(6), // Skill SPD Rate
+                                    new Unit(3), // Skill PEN Rate
+                                    new Unit(0)), // Skill Block Rate
+                                "6001",
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\Used\2005.png")
+                        }
+                            ).GetForSerialize(), 2, WotoProvider.Enums.HeroType.CommonHero,
+                             GameObjects.Players.PlayerElement.WindElement,
+                             new Unit(10), // HP Rate
+                             new Unit(20), // ATK Rate
+                             new Unit(18), // INT Rate
+                             new Unit(5), // DEF Rate
+                             new Unit(18), // RES Rate
+                             new Unit(20), // SPD Rate
+                             new Unit(20), // PEN Rate
+                             new Unit(5), // Block Rate
+                             @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Heroes_580_500\Used\1005.png"
+                                    ));
+  
+  
+  
+  
+  
+  -->
+  <!--Ducker-->
+  <!--
+  Hero.CreateHero(
+                HeroSerialize.GenerateHeroSerialize(
+                    "6002", "Ducker",
+                    HeroSkill.GenerateHeroSkill(
+                        new Skill[]
+                        {
+                            Skill.GenerateSkill("Assualt", // The Skill Name
+                            0, // This is the Skill index
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(2), // Skill HP Rate
+                                    new Unit(6), // Skill ATK Rate
+                                    new Unit(2),// Skill INT Rate
+                                    new Unit(0),// Skill DEF Rate
+                                    new Unit(2),// Skill RES Rate
+                                    new Unit(4),// Skill SPD Rate
+                                    new Unit(1),// Skill PEN Rate
+                                    new Unit(0)),// Skill Block Rate
+                                "6002", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\1022.png" // Skill Image
+                                ),
+                            Skill.GenerateSkill("Sharp Dagger", // This is the Skill Name
+                            1, // This is the Skill index.
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(4), // Skill HP Rate
+                                    new Unit(12), // Skill ATK Rate
+                                    new Unit(6), // Skill INT Rate
+                                    new Unit(1), // Skill DEF Rate
+                                    new Unit(2), // Skill RES Rate
+                                    new Unit(4), // Skill SPD Rate
+                                    new Unit(0), // Skill PEN Rate
+                                    new Unit(14)), // Skill Block Rate
+                                "6002", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\2022.png") // Skill's Image
+                        }
+                            ).GetForSerialize(), 
+                    2,  // This is Skill's Count
+                    WotoProvider.Enums.HeroType.CommonHero,
+                    GameObjects.Players.PlayerElement.WindElement,
+                             new Unit(8), // HP Rate
+                             new Unit(16), // ATK Rate
+                             new Unit(4), // INT Rate
+                             new Unit(2), // DEF Rate
+                             new Unit(4), // RES Rate
+                             new Unit(6), // SPD Rate
+                             new Unit(4), // PEN Rate
+                             new Unit(2), // Block Rate
+                             @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Heroes_580_500\1022.png"
+                                    ));
+  -->
+  <!--ーーーーーーーーーーーーーーーーーーーーーーーーーー-->
+  <!--Keita-->
+  <!--
+  Hero.CreateHero(
+                HeroSerialize.GenerateHeroSerialize(
+                    "7001", "Keita",
+                    HeroSkill.GenerateHeroSkill(
+                        new Skill[]
+                        {
+                            Skill.GenerateSkill("Whirling Strike", // The Skill Name
+                            0, // This is the Skill index
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(1), // Skill HP Rate
+                                    new Unit(8), // Skill ATK Rate
+                                    new Unit(6),// Skill INT Rate
+                                    new Unit(2),// Skill DEF Rate
+                                    new Unit(2),// Skill RES Rate
+                                    new Unit(6),// Skill SPD Rate
+                                    new Unit(6),// Skill PEN Rate
+                                    new Unit(2)),// Skill Block Rate
+                                "7001", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\1020.png" // Skill Image
+                                ),
+                            Skill.GenerateSkill("Quick Hit", // This is the Skill Name
+                            1, // This is the Skill index.
+                                SkillRate.GenerateSkillRate(
+                                    new Unit(0), // Skill HP Rate
+                                    new Unit(16), // Skill ATK Rate
+                                    new Unit(12), // Skill INT Rate
+                                    new Unit(1), // Skill DEF Rate
+                                    new Unit(8), // Skill RES Rate
+                                    new Unit(6), // Skill SPD Rate
+                                    new Unit(2), // Skill PEN Rate
+                                    new Unit(1)), // Skill Block Rate
+                                "7001", // This is the Hero ID
+                                @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Skills\64_64\2020.png") // Skill's Image
+                        }
+                            ).GetForSerialize(), 
+                    2, WotoProvider.Enums.HeroType.CommonHero,
+                             GameObjects.Players.PlayerElement.PlasmaElement,
+                             new Unit(8), // HP Rate
+                             new Unit(16), // ATK Rate
+                             new Unit(16), // INT Rate
+                             new Unit(8), // DEF Rate
+                             new Unit(20), // RES Rate
+                             new Unit(16), // SPD Rate
+                             new Unit(16), // PEN Rate
+                             new Unit(16), // Block Rate
+                             @"C:\Users\mrwoto\Programming\Project\LTW\myImages\Heroes_580_500\1020.png"
+                                    ));
+  
+  
+  
+  -->
+  
+  
+  
+</root>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Last Testamnt of Wanderers 
+	Copyright (C) 2019 - 2021 wotoTeam, TeaInside
+	This file is subject to the terms and conditions defined in
+	file 'LICENSE', which is part of the source code.
+-->
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+		  			<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+			  				</xsd:sequence>
+			  				<xsd:attribute name="name" use="required" type="xsd:string" />
+			  				<xsd:attribute name="type" type="xsd:string" />
+			  				<xsd:attribute name="mimetype" type="xsd:string" />
+			  				<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+		  			</xsd:element>
+		  			<xsd:element name="assembly">
+						<xsd:complexType>
+			  				<xsd:attribute name="alias" type="xsd:string" />
+			  				<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+		  			</xsd:element>
+		  			<xsd:element name="data">
+						<xsd:complexType>
+			  				<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+			  				</xsd:sequence>
+			  				<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+			  				<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+			  				<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+			  				<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+		  			</xsd:element>
+		  			<xsd:element name="resheader">
+						<xsd:complexType>
+			  				<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+			  				</xsd:sequence>
+			  				<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+		  			</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+	<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+  	</resheader>
+  	<resheader name="reader">
+	  <!--
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	  -->
+		<value>System.Resources.ResXResourceReader</value>
+  	</resheader>
+  	<resheader name="writer">
+	  <!--
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	  -->
+		<value>System.Resources.ResXResourceWriter</value>
+  	</resheader>
+  	<data name="FirstFontFile_Name" xml:space="preserve">
+		<value>f_161020201253.bin</value>
+		<comment>LTW_Bold.ttf</comment>
+  	</data>
+	<!--
+		Commented in 21 / 04 / 2021 09:30 AM by ALi.w
+		not sure if it will cause an error or not.
+		<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+		<data name="Old Story Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+	-->
+	<data name="Old Story Bold" type="System.Resources.ResXFileRef">
+		<value>..\..\Resources\Old Story Bold.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+		<comment>The Old Story Bold Font.</comment>
+  	</data>
+	<data name="Old Story Bold Italic" type="System.Resources.ResXFileRef">
+		<value>..\..\Resources\Old Story Bold Italic.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+		<comment>THe Old Story Bold Italic Font.</comment>
+	</data>
+	<data name="LTWWelcomeTT-Bold" type="System.Resources.ResXFileRef">
+		<value>..\..\Resources\LTWWelcomeTT-Bold.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+		<comment>The LTW Bold Font.</comment>
+	</data>
+	<data name="LTWWelcomeTT-Regular" type="System.Resources.ResXFileRef">
+		<value>..\..\Resources\LTWWelcomeTT-Regular.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+		<comment>The LTW Regular Font.</comment>
+	</data>
+	<data name="NotoSansJP-Regular" type="System.Resources.ResXFileRef">
+		<value>..\..\Resources\NotoSansJP-Regular.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+		<comment>The NotoSans Regular Font.</comment>
+	</data>
+</root>

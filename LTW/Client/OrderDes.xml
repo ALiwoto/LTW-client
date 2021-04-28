@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+	Last Testamnt of Wanderers 
+	Copyright (C) 2019 - 2021 wotoTeam, TeaInside
+	This file is subject to the terms and conditions defined in
+	file 'LICENSE', which is part of the source code.
+-->
+
+<!--
+  Order description for defenition of the componenets for the
+  Graphic elements classes.
+  BY: ALi.w
+  IN: 07 / 03 / 2021 - 11:09 PM
+-->
+
+<doc>
+  <assembly>
+    <name>LTW</name>
+    <description>
+      Sword Art Online : The Last Testament
+    </description>
+  </assembly>
+  <members>
+    <member name="FlatElement">
+      <description type="FlatElement.FlatElement(...)">
+        <components>
+          <order>
+            <news>
+              <c>value = new(...)</c>
+            </news>
+            <!--===========================================-->
+            <names>
+              <c>value.SetLabelName(string)</c>
+            </names>
+            <status>
+              <c>value.SetStatus(uint)</c>
+            </status>
+            <fontAndTextAligns>
+              <c>value.ChangeFont(SpriteFont)</c>
+              <c>value.ChangeAlignmation(StringAlignmation)</c>
+            </fontAndTextAligns>
+            <priorities>
+              <c>value.ChangePriority(ElementPriority)</c>
+            </priorities>
+            <sizes>
+              <c>value.ChangeSize(int, int)</c>
+            </sizes>
+            <ownering>
+              <c>value.SetOwner(GraphicElement)</c>
+            </ownering>
+            <locations>
+              <c>value.ChangeLocation(float, float)</c>
+            </locations>
+            <movements>
+              <c>value.ChangeMovements(ElementMovements)</c>
+            </movements>
+            <colors>
+              <c>value.ChangeForeColor(XColor)</c>
+              <c>value.ChangeBackColor(XColor)</c>
+            </colors>
+            <enableds>
+              <c>value.Enable()</c>
+              <warning>
+                You don't have to uuse enable method,
+                becuase the element is enable by default.
+              </warning>
+            </enableds>
+            <texts>
+              <c>value.SetLabelText()</c>
+              <c>value.SetLabelText(string)</c>
+            </texts>
+            <images>
+              <c>value.ChangeImage()</c>
+              <c>value.ChangeImage(Texture2D)</c>
+            </images>
+            <applyAndShow>
+              <c>value.Apply()</c>
+              <c>value.Show()</c>
+            </applyAndShow>
+            <events>
+              <c>value.EventHandler += value_EventHandler</c>
+            </events>
+            <!--===========================================-->
+            <addRanges>
+              <warning>
+                Do NOT use add or add range for graphic elements.
+                If you want to add a graphic elements to another one,
+                simply use their <c>SetOwner(GraphicElements)</c>
+                method.
+              </warning>
+            </addRanges>
+          </order>
+          <re_order>
+            <!--
+            //news:
+            
+            //names:
+            //status:
+            //fontAndTextAligns:
+            //priorities:
+            //sizes:
+            //ownering:
+            //locations:
+            //movements:
+            //colors:
+            //enableds:
+            //texts:
+            //images:
+            //applyAndShow:
+            //events:
+            
+            //addRanges:
+            -->
+          </re_order>
+        </components>
+      </description>
+    </member>
+  </members>
+</doc>
+

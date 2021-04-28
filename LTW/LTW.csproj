@@ -1,0 +1,120 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<!-- Last Testamnt of Wanderers 
+	Copyright (C) 2019 - 2021 wotoTeam, TeaInside
+	This file is subject to the terms and conditions defined in
+	file 'LICENSE', which is part of the source code.-->
+	<!--===================================================-->
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net5.0</TargetFramework>
+		<PublishSingleFile>true</PublishSingleFile>
+		<SelfContained>true</SelfContained>
+		<RuntimeIdentifier Condition="'$(OS)' == 'unix'">linux-x64</RuntimeIdentifier>
+		<RuntimeIdentifier Condition="'$(OS)' == 'Windows_NT'">win-x64</RuntimeIdentifier>
+		<PublishTrimmed>true</PublishTrimmed>
+		<PublishReadyToRun>true</PublishReadyToRun>
+		<AssemblyName>LTW</AssemblyName>
+		<RootNamespace>LTW</RootNamespace>
+		<NeutralLanguage>en-US</NeutralLanguage>
+	</PropertyGroup>
+	<!--===================================================-->
+	<PropertyGroup>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<ApplicationIcon>Icon.ico</ApplicationIcon>
+		<AssemblyVersion>2.1.1.25</AssemblyVersion>
+		<FileVersion>2.1.1.25</FileVersion>
+		<Authors>wotoTeam</Authors>
+		<Product>LTW-LT</Product>
+		<Description>Sword Art Online : The Last Testament</Description>
+		<Copyright>Copyright © wotoTeam	2021</Copyright>
+		<Company>woto_team</Company>
+		<PackageLicenseExpression>Under The Lisence of woto_team Corporation</PackageLicenseExpression>
+	</PropertyGroup>
+	<!--===================================================-->
+	<PropertyGroup>
+		<!--
+			define the __LINUX__ and __WINDOWS__ constants in order to use it in the
+			code as: 
+			#if __LINUX__
+				....
+			#elif __WINDOWS__
+				...
+			#endif
+			===================================================================
+			please don't undefine this constant.
+		-->
+		<DefineConstants Condition="'$(OS)' == 'unix'">__LINUX__</DefineConstants>
+		<DefineConstants Condition="'$(OS)' == 'Windows_NT'">__WINDOWS__</DefineConstants>
+	</PropertyGroup>
+	<!--===================================================-->
+	<ItemGroup>
+		<None Remove="Icon.ico" />
+		<None Remove="Icon.bmp" />
+	</ItemGroup>
+	<!--===================================================-->
+	<ItemGroup>
+		<EmbeddedResource Include="Icon.ico" />
+		<EmbeddedResource Include="Icon.bmp" />
+	</ItemGroup>
+	<!--===================================================-->
+	<ItemGroup>
+		<TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
+	</ItemGroup>
+	<!--===================================================-->
+	<ItemGroup>
+		<PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
+		<PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
+	</ItemGroup>
+	<!--===================================================-->
+	<ItemGroup>
+		<!--======================-->
+		<Reference Include="Octokit, Version=0.50.0.0, Culture=neutral, PublicKeyToken=null">
+			<HintPath>..\octokit\0.50.0\lib\netstandard2.0\Octokit.dll</HintPath>
+		</Reference>
+		<!--======================-->
+		<Reference Include="FontStashSharp">
+			<HintPath>..\references\FontStashSharp.MonoGame\FontStashSharp.MonoGame.dll</HintPath>
+		</Reference>
+		<!--======================-->
+		<Reference Include="Cyotek.Drawing.BitmapFont">
+			<HintPath>..\references\Cyotek.Drawing.BitmapFont\Cyotek.Drawing.BitmapFont.dll</HintPath>
+		</Reference>
+		<!--======================-->
+		<Reference Include="StbImageSharp">
+			<HintPath>..\references\StbImageSharp\StbImageSharp.dll</HintPath>
+		</Reference>
+		<!--======================-->
+		<Reference Include="StbTrueTypeSharp">
+			<HintPath>..\references\StbTrueTypeSharp\StbTrueTypeSharp.dll</HintPath>
+		</Reference>
+		<!--======================-->
+	</ItemGroup>
+	<!--===================================================-->
+	<ItemGroup>
+		<Content Include="..\..\..\LTW\LTW\Content\obj\DesktopGL\Content\.mgstats">
+			<Link>Content\obj\DesktopGL\Content\.mgstats</Link>
+		</Content>
+	</ItemGroup>
+	<!--===================================================-->
+	<ItemGroup>
+		<!--Include the project folders here.-->
+		<Folder Include="..\..\..\LTW\LTW\Content\bin\DesktopGL\Content">
+			<Link>Content\bin\DesktopGL\Content</Link>
+		</Folder>
+		<Folder Include="Controls\Animation\AnimationCompanies" />
+		<Folder Include="Controls\GameGraphics\XDrawing" />
+		<Folder Include="GameObjects\LiveBattle" />
+		<Folder Include="GameObjects\MapObjects" />
+		<Folder Include="GameObjects\NPC" />
+	</ItemGroup>
+	<!--===================================================-->
+	<ItemGroup>
+		<!--Include another project .csproj file here.-->
+		<!--If you include them here, they will be built as well.-->
+		<ProjectReference Include="..\WotoProvider\WotoProvider.csproj" />
+	</ItemGroup>
+	<!--===================================================-->
+</Project>
+
+<!--End of the LTW Project File.-->
+<!--2019 - 2021 (C) wotoTeam-->

@@ -1,0 +1,767 @@
+
+#----------------------------- Global Properties ----------------------------#
+
+/outputDir:bin/$(Platform)
+/intermediateDir:obj/$(Platform)
+/platform:Windows
+/config:
+/profile:Reach
+/compress:False
+
+#-------------------------------- References --------------------------------#
+
+
+#---------------------------------- Content ---------------------------------#
+
+#begin f_/m_/f_010320212340.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:f_/m_/f_010320212340.png
+
+#begin f_/m_/f_010320212341.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:f_/m_/f_010320212341.png
+
+#begin f_/m_/f_010320212342.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:f_/m_/f_010320212342.png
+
+#begin f_/m_/f_010320212343.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:f_/m_/f_010320212343.png
+
+#begin f_/m_/f_270220212252.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:f_/m_/f_270220212252.png
+
+#begin f_/s_b_/f_080320212007.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:f_/s_b_/f_080320212007.png
+
+#begin f_/s_b_/f_080320212008.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:f_/s_b_/f_080320212008.png
+
+#begin f_/s_b_/f_080320212009.jpg
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:f_/s_b_/f_080320212009.jpg
+
+#begin f_/s_b_/f_191020200758.bin
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:f_/s_b_/f_191020200758.bin
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic10.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic10.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic11.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic11.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic12.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic12.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic13.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic13.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic14.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic14.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic15.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic15.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic16.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic16.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic17.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic17.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic18.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic18.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic19.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic19.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic20.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic20.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic21.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic21.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic22.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic22.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic23.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic23.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic24.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic24.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic25.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic25.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic26.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic26.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic27.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic27.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic28.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic28.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic29.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic29.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic30.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic30.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic8.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic8.spritefont
+
+#begin F_M_G/Old Story Bold Italic/Old Story Bold Italic9.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold Italic/Old Story Bold Italic9.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold10.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold10.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold11.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold11.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold12.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold12.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold13.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold13.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold14.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold14.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold15.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold15.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold16.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold16.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold17.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold17.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold18.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold18.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold19.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold19.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold20.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold20.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold21.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold21.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold22.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold22.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold23.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold23.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold24.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold24.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold25.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold25.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold26.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold26.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold27.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold27.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold28.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold28.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold29.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold29.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold30.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold30.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold8.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold8.spritefont
+
+#begin F_M_G/Old Story Bold/Old Story Bold9.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/Old Story Bold/Old Story Bold9.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold10.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold10.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold11.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold11.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold12.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold12.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold13.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold13.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold14.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold14.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold15.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold15.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold16.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold16.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold17.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold17.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold18.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold18.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold19.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold19.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold20.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold20.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold21.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold21.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold22.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold22.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold23.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold23.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold24.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold24.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold25.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold25.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold26.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold26.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold27.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold27.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold28.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold28.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold29.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold29.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold30.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold30.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold8.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold8.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold9.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Bold/LTWWelcomeTT-Bold9.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular10.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular10.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular11.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular11.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular12.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular12.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular13.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular13.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular14.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular14.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular15.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular15.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular16.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular16.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular17.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular17.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular18.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular18.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular19.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular19.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular20.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular20.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular21.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular21.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular22.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular22.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular23.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular23.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular24.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular24.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular25.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular25.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular26.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular26.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular27.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular27.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular28.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular28.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular29.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular29.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular30.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular30.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular8.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular8.spritefont
+
+#begin F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular9.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:F_M_G/LTWWelcomeTT-Regular/LTWWelcomeTT-Regular9.spritefont
+

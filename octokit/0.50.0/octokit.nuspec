@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Octokit</id>
+    <version>0.50.0</version>
+    <authors>GitHub</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>octokit.png</icon>
+    <projectUrl>https://github.com/octokit/octokit.net</projectUrl>
+    <iconUrl>https://f.cloud.github.com/assets/19977/1510987/64af2b26-4a9d-11e3-89fc-96a185171c75.png</iconUrl>
+    <description>An async-based GitHub API client library for .NET and .NET Core</description>
+    <copyright>Copyright GitHub 2017</copyright>
+    <tags>GitHub API Octokit linqpad-samples dotnetcore</tags>
+    <repository type="git" url="https://github.com/octokit/octokit.net" commit="618215cf7ea59359997fad992e6f3f9540e62448" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.6" />
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.6" />
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.6" />
+      <frameworkAssembly assemblyName="System.Net.Http" targetFramework=".NETFramework4.6" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

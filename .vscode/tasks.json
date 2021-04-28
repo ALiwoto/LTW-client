@@ -1,0 +1,42 @@
+{
+        "version": "2.0.0",
+        "tasks": [
+                {
+                        "label": "build",
+                        "command": "dotnet",
+                        "type": "process",
+                        "args": [
+                                "build",
+                                "${workspaceFolder}/LTW.sln",
+                                "/property:GenerateFullPaths=true",
+                                "/consoleloggerparameters:NoSummary"
+                        ],
+                        "problemMatcher": "$msCompile"
+                },
+                {
+                        "label": "debug",
+                        "command": "dotnet",
+                        "type": "process",
+                        "args": [
+                                "debug",
+                                "${workspaceFolder}/LTW.sln",
+                                "/property:GenerateFullPaths=true",
+                                "/consoleloggerparameters:NoSummary"
+                        ],
+                        "problemMatcher": "$msCompile"
+                },
+                {
+                        "label": "watch",
+                        "command": "dotnet",
+                        "type": "process",
+                        "args": [
+                                "watch",
+                                "run",
+                                "${workspaceFolder}/LTW.sln",
+                                "/property:GenerateFullPaths=true",
+                                "/consoleloggerparameters:NoSummary"
+                        ],
+                        "problemMatcher": "$msCompile"
+                }
+        ]
+}

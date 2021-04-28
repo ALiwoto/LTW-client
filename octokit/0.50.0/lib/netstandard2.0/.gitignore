@@ -1,0 +1,4 @@
+# ignore git files.
+
+/.idea
+Octokit.xml

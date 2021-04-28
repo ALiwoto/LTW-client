@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+  	</PropertyGroup>
+	<!--===================================================-->
+	<PropertyGroup>
+		<!--
+			define the __LINUX__ and __WINDOWS__ constants in order to use it in the
+			code as: 
+			#if __LINUX__
+				....
+			#elif __WINDOWS__
+				...
+			#endif
+			===================================================================
+			please don't undefine this constant.
+		-->
+		<DefineConstants Condition="'$(OS)' == 'unix'">__LINUX__</DefineConstants>
+		<DefineConstants Condition="'$(OS)' == 'Windows_NT'">__WINDOWS__</DefineConstants>
+	</PropertyGroup>
+	<!--===================================================-->
+</Project>

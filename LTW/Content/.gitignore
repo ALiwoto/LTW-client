@@ -1,0 +1,11 @@
+# ignore some the Content files and directories
+
+#------------------------------------------------------------------------------
+# ignore the bin and obj directories.
+# plese don't remove these directories from the ignore list. mrwoto
+/obj
+/bin
+#------------------------------------------------------------------------------
+
+# ignore the old files, they are used to testing the content manager.
+Content.mgcb-old
