@@ -1,9 +1,9 @@
-# Sword Art Online : Last Testament 
+# Last Testament Of Wanderers
 ====================================
 
 Welcome to the LTW source code! 
 
-Sword Art Online Last Testament, is a open-source MMORPG game.
+Last Testament Of Wanderers, is a open-source MMORPG game.
 From this repository you can build LTW game, all of the Contents are included.
 
 
