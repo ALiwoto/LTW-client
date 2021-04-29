@@ -74,6 +74,6 @@ For the prerequisites for building from source, please look at the [Requirements
 
 ## License
 
-The LTW project is under the [MIT License](https://opensource.org/licenses/MIT).
+The LTW project is under the [GPL v2 License](https://opensource.org/licenses/GPL-2.0).
 See the [LICENSE](LICENSE) file for more details.  
 Third-party libraries used by LTW are under their own licenses.  Please refer to those libraries for details on the license they use.
