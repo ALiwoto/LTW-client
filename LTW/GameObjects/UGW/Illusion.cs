@@ -142,9 +142,6 @@ namespace LTW.GameObjects.UGW
 					_t.SetData(_data, DEFAULT_Z_BASE, _data.Length);
 					return GetIllusion(in _t);
 				}
-
-
-				return new(_texture);
 			}
 			return null;
 		}
@@ -348,10 +345,10 @@ namespace LTW.GameObjects.UGW
 		/// </param>
 		public static Illusion GetIllusion(in byte[] _file_data)
 		{
-			var _m = new MemoryStream(_file_data);
+			Stream _m = new MemoryStream(_file_data);
 			if (_m != null && _m.CanRead)
 			{
-				return GetIllusion(_m);
+				return GetIllusion(in _m);
 			}
 			return null;
 		}
