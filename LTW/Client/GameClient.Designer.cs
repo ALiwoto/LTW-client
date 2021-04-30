@@ -45,7 +45,7 @@ namespace LTW.Client
 				// HttpListener _listener = new HttpListener();
 				TcpClient _tcp = new TcpClient();
 				NetworkStream _stream;
-				_tcp.Connect("localhost", 1228);
+				_tcp.Connect("localhost", 37372);
 				_stream = _tcp.GetStream();
 				byte[] _b = new byte[512];
 				var _result = _stream.Read(_b);
@@ -54,7 +54,7 @@ namespace LTW.Client
 			}
 			catch
 			{
-
+				
 			}
 			
 #if BUTTON_TEST_1
