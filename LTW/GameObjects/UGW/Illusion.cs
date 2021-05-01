@@ -8,7 +8,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using LTW.Security;
 using LTW.Constants;
-using LTW.GameObjects.WMath;
 using static LTW.Client.Universe;
 
 namespace LTW.GameObjects.UGW
@@ -47,18 +46,7 @@ namespace LTW.GameObjects.UGW
 		#endregion
 		//-------------------------------------------------
 		#region ordinary Method's Region
-		public void DrawLine(in Line2D _line)
-		{
-			// get the rectangle of the line, however
-			// do not use Rectangle.Contains method.
-			var rect = _line.GetRectangle();
 
-		}
-		public void DrawLines(params Line2D[] _lines)
-		{
-
-		}
-		
 		#endregion
 		//-------------------------------------------------
 		#region Get Method's Region
