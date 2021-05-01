@@ -136,6 +136,7 @@ namespace LTW.Client
             MainMenuLoaded              = false;
             ReleasingDate               = null;
             //---------------------------------------------
+
         }
         #endregion
         //-------------------------------------------------
