@@ -202,7 +202,7 @@ namespace LTW.Client
 			this.GameUniverse.MouseUp		+= WotoPlanet_MouseUp;
 			this.Window.TextInput			+= Window_TextInput;
 			//---------------------------------------------
-			#if SETVER_TEST
+			#if !SETVER_TEST
 			System.Net.Http.HttpClient test = new System.Net.Http.HttpClient();
 			test.BaseAddress = new Uri("https://ltw-game.herokuapp.com");
 			System.Net.Http.HttpRequestMessage ro = new System.Net.Http.HttpRequestMessage();

@@ -54,6 +54,7 @@ namespace LTW.GameObjects.UGW
 		{
 			return _texture;
 		}
+		
 		#endregion
 		//-------------------------------------------------
 		#region Set Method's Region
