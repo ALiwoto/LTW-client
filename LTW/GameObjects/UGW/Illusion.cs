@@ -8,7 +8,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using LTW.Security;
 using LTW.Constants;
-using LTW.GameObjects.WMath;
 using static LTW.Client.Universe;
 
 namespace LTW.GameObjects.UGW
@@ -31,7 +30,8 @@ namespace LTW.GameObjects.UGW
 		#endregion
 		//-------------------------------------------------
 		#region Properties Region
-
+		public byte[][] Data { get; private set; }
+		public byte[] RawData { get; private set; }
 		#endregion
 		//-------------------------------------------------
 		#region Constructor's Region
@@ -46,15 +46,7 @@ namespace LTW.GameObjects.UGW
 		#endregion
 		//-------------------------------------------------
 		#region ordinary Method's Region
-		public void DrawLine(in Line2D _line)
-		{
-			
-		}
-		public void DrawLines(params Line2D[] _lines)
-		{
 
-		}
-		
 		#endregion
 		//-------------------------------------------------
 		#region Get Method's Region
@@ -128,15 +120,15 @@ namespace LTW.GameObjects.UGW
 		{
 			if (_texture != null && !_texture.IsDisposed)
 			{
-				var _client = ThereIsConstants.Forming.GameClient;
-				var _g = _client.GraphicsDevice;
-				if (_g != null && !_g.IsDisposed)
+				var client = ThereIsConstants.Forming.GameClient;
+				var g = client.GraphicsDevice;
+				if (g != null && !g.IsDisposed)
 				{
 					if (!_texture.Bounds.Contains(_rect))
 					{
 						return null;
 					}
-					var _t = new Texture2D(_g, _rect.Width, _rect.Height);
+					var _t = new Texture2D(g, _rect.Width, _rect.Height);
 					var _data = new Color[_rect.Width * _rect.Height];
 					_texture.GetData(_data, DEFAULT_Z_BASE, _data.Length);
 					_t.SetData(_data, DEFAULT_Z_BASE, _data.Length);
@@ -165,13 +157,13 @@ namespace LTW.GameObjects.UGW
 			{
 				return null;
 			}
-			var _client = ThereIsConstants.Forming.GameClient;
-			if (_client != null && _client.Verified)
+			var client = ThereIsConstants.Forming.GameClient;
+			if (client != null && client.Verified)
 			{
-				var _g = _client.GraphicsDevice;
-				if (_g != null && !_g.IsDisposed)
+				var g = client.GraphicsDevice;
+				if (g != null && !g.IsDisposed)
 				{
-					var _t = Texture2D.FromFile(_g, _full_path.GetValue());
+					var _t = Texture2D.FromFile(g, _full_path.GetValue());
 					return GetIllusion(in _t);
 				}
 			}
@@ -204,13 +196,13 @@ namespace LTW.GameObjects.UGW
 			{
 				return null;
 			}
-			var _client = ThereIsConstants.Forming.GameClient;
-			if (_client != null && _client.Verified)
+			var client = ThereIsConstants.Forming.GameClient;
+			if (client != null && client.Verified)
 			{
-				var _g = _client.GraphicsDevice;
-				if (_g != null && !_g.IsDisposed)
+				var g = client.GraphicsDevice;
+				if (g != null && !g.IsDisposed)
 				{
-					var _t1 = Texture2D.FromFile(_g, _full_path.GetValue());
+					var _t1 = Texture2D.FromFile(g, _full_path.GetValue());
 					return GetIllusion(in _t1, in _w, in _h);
 				}
 			}
@@ -240,13 +232,13 @@ namespace LTW.GameObjects.UGW
 			{
 				return null;
 			}
-			var _client = ThereIsConstants.Forming.GameClient;
-			if (_client != null && _client.Verified)
+			var client = ThereIsConstants.Forming.GameClient;
+			if (client != null && client.Verified)
 			{
-				var _g = _client.GraphicsDevice;
-				if (_g != null && !_g.IsDisposed)
+				var g = client.GraphicsDevice;
+				if (g != null && !g.IsDisposed)
 				{
-					var _t = Texture2D.FromFile(_g, _full_path.GetValue());
+					var _t = Texture2D.FromFile(g, _full_path.GetValue());
 					return GetIllusion(in _t, in _rect);
 				}
 			}
@@ -266,13 +258,13 @@ namespace LTW.GameObjects.UGW
 			{
 				return null;
 			}
-			var _client = ThereIsConstants.Forming.GameClient;
-			if (_client != null && _client.Verified)
+			var client = ThereIsConstants.Forming.GameClient;
+			if (client != null && client.Verified)
 			{
-				var _g = _client.GraphicsDevice;
-				if (_g != null && !_g.IsDisposed)
+				var g = client.GraphicsDevice;
+				if (g != null && !g.IsDisposed)
 				{
-					var _t = Texture2D.FromStream(_g, _stream);
+					var _t = Texture2D.FromStream(g, _stream);
 					return GetIllusion(in _t);
 				}
 			}
@@ -296,13 +288,13 @@ namespace LTW.GameObjects.UGW
 		public static Illusion GetIllusion(in Stream _stream, 
 											in int _w, in int _h)
 		{
-			var _client = ThereIsConstants.Forming.GameClient;
-			if (_client != null && _client.Verified)
+			var client = ThereIsConstants.Forming.GameClient;
+			if (client != null && client.Verified)
 			{
-				var _g = _client.GraphicsDevice;
-				if (_g != null && !_g.IsDisposed)
+				var g = client.GraphicsDevice;
+				if (g != null && !g.IsDisposed)
 				{
-					var _t = Texture2D.FromStream(_g, _stream);
+					var _t = Texture2D.FromStream(g, _stream);
 					return GetIllusion(in _t, in _w, in _h);
 				}
 			}
@@ -322,13 +314,13 @@ namespace LTW.GameObjects.UGW
 		public static Illusion GetIllusion(in Stream _stream, 
 											in Rectangle _rect)
 		{
-			var _client = ThereIsConstants.Forming.GameClient;
-			if (_client != null && _client.Verified)
+			var client = ThereIsConstants.Forming.GameClient;
+			if (client != null && client.Verified)
 			{
-				var _g = _client.GraphicsDevice;
-				if (_g != null && !_g.IsDisposed)
+				var g = client.GraphicsDevice;
+				if (g != null && !g.IsDisposed)
 				{
-					var _t = Texture2D.FromStream(_g, _stream);
+					var _t = Texture2D.FromStream(g, _stream);
 					return GetIllusion(in _t, in _rect);
 				}
 			}
@@ -345,10 +337,10 @@ namespace LTW.GameObjects.UGW
 		/// </param>
 		public static Illusion GetIllusion(in byte[] _file_data)
 		{
-			Stream _m = new MemoryStream(_file_data);
-			if (_m != null && _m.CanRead)
+			Stream m = new MemoryStream(_file_data);
+			if (_file_data != null && m.CanRead)
 			{
-				return GetIllusion(in _m);
+				return GetIllusion(in m);
 			}
 			return null;
 		}
@@ -371,10 +363,10 @@ namespace LTW.GameObjects.UGW
 		public static Illusion GetIllusion(in byte[] _file_data, 
 											in int _w, in int _h)
 		{
-			var _m = new MemoryStream(_file_data);
-			if (_m != null && _m.CanRead)
+			var m = new MemoryStream(_file_data);
+			if (m != null && m.CanRead)
 			{
-				return GetIllusion(_m, in _w, in _h);
+				return GetIllusion(m, in _w, in _h);
 			}
 			return null;
 		}
@@ -393,10 +385,10 @@ namespace LTW.GameObjects.UGW
 		public static Illusion GetIllusion(in byte[] _file_data, 
 											in Rectangle _rect)
 		{
-			var _m = new MemoryStream(_file_data);
-			if (_m != null && _m.CanRead)
+			var m = new MemoryStream(_file_data);
+			if (m != null && m.CanRead)
 			{
-				return GetIllusion(_m, in _rect);
+				return GetIllusion(m, in _rect);
 			}
 			return null;
 		}
