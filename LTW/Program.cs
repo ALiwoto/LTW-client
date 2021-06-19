@@ -21,7 +21,6 @@ namespace LTW
             // check if the game is the single one process or not.
             if (ThereIsConstants.Actions.IsSingleOne())
             {
-                // ReSharper disable once HeapView.ObjectAllocation.Evident
                 ThereIsConstants.AppSettings.DECoder = new DECoder();
                 // check if we can manage to create a single-one
                 // provider peeker or not.

@@ -1,5 +1,5 @@
-// Last Testamnt of Wanderers 
-// Copyright (C) 2019 - 2021 wotoTeam, TeaInside
+// Last Testament of Wanderers 
+// Copyright (C) 2019 - 2021 ALiwoto
 // This file is subject to the terms and conditions defined in
 // file 'LICENSE', which is part of the source code.
 

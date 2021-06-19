@@ -1,5 +1,5 @@
 ﻿// Last Testamnt of Wanderers 
-// Copyright (C) 2019 - 2021 wotoTeam, TeaInside
+// Copyright (C) 2019 - 2021 ALiwoto
 // This file is subject to the terms and conditions defined in
 // file 'LICENSE', which is part of the source code.
 
@@ -48,6 +48,7 @@ namespace LTW.Controls.Elements
 		/// the default pen width for drawing a text on an image.
 		/// </summary>
 		public const float DEFAULT_PEN_W = 10.0f;
+		public const int DEVERGE_VALUE = 2;
 		#endregion
 		//-------------------------------------------------
 		#region static Properties Region
@@ -179,10 +180,13 @@ namespace LTW.Controls.Elements
 		/// </value>
 		public virtual bool IsBarren { get; protected set; }
 		public virtual bool OwnerMover { get; protected set; }
+		public virtual bool IsMouseLocked { get; protected set; }
 		#endregion
 		//-------------------------------------------------
 		#region static field's Region
-		public static readonly Vector2 DivergeVector = new(2, 2);
+		public static readonly Vector2 DivergeVector = 
+			new(DEVERGE_VALUE, DEVERGE_VALUE);
+		internal static GraphicElements LockedElement { get; set; }
 		#endregion
 		//-------------------------------------------------
 		#region event field's Region
@@ -249,7 +253,7 @@ namespace LTW.Controls.Elements
 		{
 			CurrentStatus = 1;
 			InitializeComponent();
-			; // nothing
+			; // nothing here, what are you looking for?
 		}
 		#endregion
 		//-------------------------------------------------

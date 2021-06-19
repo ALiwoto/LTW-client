@@ -7,7 +7,7 @@ As the LTW project gains more traction and becomes more widely used, we aim to p
 Tab characters (\0x09) **should** be used in code. All indentation should be done with Tab Size of 4.
 ## Bracing
 Open braces should always be at the beginning of the line after the statement that begins the block. Contents of the brace should be indented by 4 spaces. Single statements **should** have braces. For example:
-```
+```cs
 if (someExpression)
 {
 	DoSomething();
@@ -20,7 +20,7 @@ else
 ```
 
 `case` statements should be indented from the switch statement like this:
-```
+```csharp
 switch (someExpression) 
 {
 	case 0:
@@ -85,8 +85,8 @@ Comments must provide added value or explanation to the code. Simply describing 
 ### Copyright/License notice
 Each file **should** start with a copyright notice. This is a short statement declaring the project name and copyright notice, and directing the reader to the license document elsewhere in the project. To avoid errors in doc comment builds, avoid using triple-slash doc comments.
 ```
-// Last Testamnt of Wanderers 
-// Copyright (C) 2019 - 2021 wotoTeam, TeaInside
+// Last Testament of Wanderers 
+// Copyright (C) 2019 - 2021 ALiwoto
 // This file is subject to the terms and conditions defined in
 // file 'LICENSE', which is part of the source code.
 ```

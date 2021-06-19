@@ -1,5 +1,5 @@
-﻿// Last Testamnt of Wanderers 
-// Copyright (C) 2019 - 2021 wotoTeam, TeaInside
+﻿// Last Testament of Wanderers 
+// Copyright (C) 2019 - 2021 ALiwoto
 // This file is subject to the terms and conditions defined in
 // file 'LICENSE', which is part of the source code.
 
@@ -40,22 +40,22 @@ namespace LTW.Client
 		/// </summary>
 		private void MF_InitializeComponents()
 		{
-			try
-			{
-				// HttpListener _listener = new HttpListener();
-				TcpClient _tcp = new TcpClient();
-				NetworkStream _stream;
-				_tcp.Connect("localhost", 37372);
-				_stream = _tcp.GetStream();
-				byte[] _b = new byte[512];
-				var _result = _stream.Read(_b);
-				var _str = System.Text.Encoding.UTF8.GetString(_b).TrimEnd();
-				Console.WriteLine("got something! :" + _str + " - " + _str.Length + " - "+ _b.Length);
-			}
-			catch
-			{
-				
-			}
+			//try
+			//{
+			//	// HttpListener _listener = new HttpListener();
+			//	TcpClient _tcp = new TcpClient();
+			//	NetworkStream _stream;
+			//	_tcp.Connect("localhost", 37372);
+			//	_stream = _tcp.GetStream();
+			//	byte[] _b = new byte[512];
+			//	var _result = _stream.Read(_b);
+			//	var _str = System.Text.Encoding.UTF8.GetString(_b).TrimEnd();
+			//	Console.WriteLine("got something! :" + _str + " - " + _str.Length + " - "+ _b.Length);
+			//}
+			//catch
+			//{
+			//	
+			//}
 			
 #if BUTTON_TEST_1
 			//---------------------------------------------
@@ -166,6 +166,7 @@ namespace LTW.Client
 				(2 * SandBoxBase.from_the_edge),
 				(Height - FirstFlatElement.Height) - SandBoxBase.from_the_edge);
 			//movements:
+			this.FirstFlatElement.ChangeMovements(ElementMovements.HorizontalMovements);
 			//colors:
 			this.FirstFlatElement.ChangeForeColor(SColor.DarkSeaGreen);
 			//enableds:

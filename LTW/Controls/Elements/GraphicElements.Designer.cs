@@ -1,5 +1,5 @@
 // Last Testamnt of Wanderers 
-// Copyright (C) 2019 - 2021 wotoTeam, TeaInside
+// Copyright (C) 2019 - 2021 ALiwoto
 // This file is subject to the terms and conditions defined in
 // file 'LICENSE', which is part of the source code.
 
@@ -220,6 +220,26 @@ namespace LTW.Controls.Elements
 				}
 			}
 		}
+		
+		public virtual void LockMouse()
+		{
+			if (!this.IsMouseLocked)
+			{
+				this.IsMouseLocked = true;
+				LockedElement = this;
+			}
+		}
+
+		public virtual void UnLockMouse()
+		{
+			if (this.IsMouseLocked)
+			{
+				this.IsMouseLocked = false;
+				// do NOT set LockedElement to null here.
+				// LockedElement = null;
+			}
+		}
+
 		/// <summary>
 		/// Discharge the <see cref="MoveManager"/> of the element.
 		/// </summary>
@@ -327,6 +347,7 @@ namespace LTW.Controls.Elements
 		/// </summary>
 		internal virtual void MouseChange()
 		{
+			// check if the mouse only is in the region of this element or not.
 			if (!this.MouseHere() && this.MouseIn())
 			{
 				this.Manager?.MouseChange();
@@ -334,11 +355,11 @@ namespace LTW.Controls.Elements
 			else
 			{
 				// check if the mouse currently is in the region or not.
-				if (this.MouseIn())
+				if (this.MouseIn() || this.IsMouseLocked)
 				{
 					// check if mouse was in the region in previous update
 					// or not.
-					if (this.IsMouseIn)
+					if (this.IsMouseIn || this.IsMouseLocked)
 					{
 						// it means in the previous update, the mouse pointer
 						// was in the region, and now it's also in the region.
@@ -380,7 +401,7 @@ namespace LTW.Controls.Elements
 					}
 					else
 					{
-						// imossible to reach here!
+						// impossible to reach here!
 						// if you reach here, it means some mistakes have been
 						// taken.
 						// anyway, just in case I will add return here.
@@ -486,6 +507,7 @@ namespace LTW.Controls.Elements
 		{
 			Task.Run((() =>
 			{
+				this.LockMouse();
 				// Shock the element in another thread.
 				this.Shocker();
 				// raise the event in another thread.
