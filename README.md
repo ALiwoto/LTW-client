@@ -14,9 +14,10 @@ Last Testament Of Wanderers, is a open-source MMORPG game.
 From this repository you can build LTW game, all of the Contents are included.
 
 
+<!--
+[![Join the chat at https://discord.gg/<discordlink>](https://img.shields.io/discord/<discordid>?color=%25237289DA&label=DOT&logo=discord&logoColor=white)](https://discord.gg/<discordlink>)
 
-[![Join the chat at https://discord.gg/Nxd9xs4PbN](https://img.shields.io/discord/503992242625576982?color=%25237289DA&label=DOT&logo=discord&logoColor=white)](https://discord.gg/Nxd9xs4PbN)
-
+-->
 
  * [Supported Platforms](#supported-platforms)
  * [Support and Contributions](#support-and-contributions)
