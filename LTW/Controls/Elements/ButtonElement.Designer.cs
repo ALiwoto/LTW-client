@@ -11,7 +11,6 @@ using FontStashSharp;
 using WotoProvider.Enums;
 using LTW.Security;
 using LTW.Controls.Moving;
-using XColor = Microsoft.Xna.Framework.Color;
 
 namespace LTW.Controls.Elements
 {
@@ -73,7 +72,7 @@ namespace LTW.Controls.Elements
         #endregion
         //-------------------------------------------------
         #region overrided Method's Region
-        protected override Texture2D GetBackGroundTexture(XColor color)
+        protected override Texture2D GetBackGroundTexture(Color color)
         {
 #if BUTTON_BACKGROUND
             // w: 75, h: 23.
@@ -238,7 +237,7 @@ namespace LTW.Controls.Elements
         {
             this._flat?.ChangeFont(in font);
         }
-        public override void ChangeForeColor(in XColor color)
+        public override void ChangeForeColor(in Color color)
         {
             this._flat.ChangeForeColor(in color);
         }
@@ -284,7 +283,7 @@ namespace LTW.Controls.Elements
         {
             _flat?.ChangeAlignmation(alignmation);
         }
-        public void ChangeForeColor(XColor color, float w)
+        public void ChangeForeColor(Color color, float w)
         {
             this._flat?.ChangeForeColor(color, w);
         }
@@ -303,6 +302,26 @@ namespace LTW.Controls.Elements
         {
             this.ChangeSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
         }
+		/// <summary>
+		/// multiple the current width and height of this button element.
+		/// </summary>
+		/// <param name="multiple">
+		/// the float multiple number.
+		/// please do note that if this number is 0 or 1, there will be no
+		/// change applied to this element.
+		/// </param>
+		public void ChangeSize(float multiple)
+		{
+			if (multiple == BASE_INDEX || multiple == PIXEL_BASE)
+			{
+				return;
+			}
+			float w = this.Width != BASE_INDEX ? this.Width :
+			DEFAULT_WIDTH;
+			float h = this.Height != BASE_INDEX ? this.Height :
+			DEFAULT_HEIGHT;
+			this.ChangeSize(multiple * w, multiple * h);
+		}
         private void ChangeBorderF(ButtonColors color)
         {
             this.BorderColor = color;
@@ -318,16 +337,16 @@ namespace LTW.Controls.Elements
             switch (this.BorderColor)
             {
                 case ButtonColors.WhiteSmoke:
-                    this.ChangeForeColor(XColor.WhiteSmoke);
+                    this.ChangeForeColor(Color.WhiteSmoke);
                     break;
                 case ButtonColors.Red:
-                    this.ChangeForeColor(XColor.Red);
+                    this.ChangeForeColor(Color.Red);
                     break;
                 case ButtonColors.GreenYellow:
-                    this.ChangeForeColor(XColor.GreenYellow);
+                    this.ChangeForeColor(Color.GreenYellow);
                     break;
                 case ButtonColors.DarkGreen:
-                    this.ChangeForeColor(XColor.DarkGreen);
+                    this.ChangeForeColor(Color.DarkGreen);
                     break;
                 default:
                     break;

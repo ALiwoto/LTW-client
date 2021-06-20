@@ -171,10 +171,10 @@ namespace LTW.Client
 			this.FirstFlatElement.ChangeLocation((Width - FirstFlatElement.Width) -
 				(2 * SandBoxBase.from_the_edge),
 				(Height - FirstFlatElement.Height) - SandBoxBase.from_the_edge);
-			testInput.ChangeLocation(400, 100);
+			testInput.ChangeLocation(400, 200);
 			//movements:
 			//colors:
-			testInput.ChangeBorder(ButtonColors.GreenYellow);
+			testInput.ChangeBorder(InputBorders.Goldenrod);
 			this.FirstFlatElement.ChangeForeColor(SColor.DarkSeaGreen);
 			//enableds:
 			testInput.EnableMouseEnterEffect();

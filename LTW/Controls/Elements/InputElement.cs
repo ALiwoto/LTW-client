@@ -14,12 +14,16 @@ namespace LTW.Controls.Elements
 	{
 		//-------------------------------------------------
         #region Constant's Region
-        public const string WhiteSmoke_Border_FileName  = "f_\\m_\\f_010320212340";
-        public const string Red_Border_FileName         = "f_\\m_\\f_010320212341";
-        public const string GreenYellow_Border_FileName = "f_\\m_\\f_010320212342";
-        public const string DarkGreen_Border_FileName   = "f_\\m_\\f_010320212343";
-        public const int DEFAULT_WIDTH                  = 150;
-        public const int DEFAULT_HEIGHT                 = 46;
+        public const string DarkGreen_Border_FileName	= "f_\\m_\\f_210620210257";
+        public const string Gold_Border_FileName		= "f_\\m_\\f_210620210258";
+        public const string Goldenrod_Border_FileName	= "f_\\m_\\f_210620210259";
+        public const string Gray_Border_FileName		= "f_\\m_\\f_210620210260";
+        public const string Green_Border_FileName		= "f_\\m_\\f_210620210261";
+        public const string Nothing_Border_FileName		= "f_\\m_\\f_210620210262";
+        public const string Red_Border_FileName			= "f_\\m_\\f_210620210263";
+        public const string SkyBlue_Border_FileName		= "f_\\m_\\f_210620210264";
+        public const int DEFAULT_WIDTH                  = 190;
+        public const int DEFAULT_HEIGHT                 = 50;
         #endregion
         //-------------------------------------------------
         #region Properties Region
@@ -130,7 +134,7 @@ namespace LTW.Controls.Elements
                 return Color.Transparent;
             }
         }
-        public virtual ButtonColors BorderColor { get; protected set; }
+        public virtual InputBorders BorderColor { get; protected set; }
         public virtual bool UseMouseEnterEffect { get; protected set; }
         public virtual bool InMouseEnterEffect { get; protected set; }
         #endregion

@@ -19,6 +19,10 @@ From this repository you can build LTW game, all of the Contents are included.
 
 -->
 
+<!--
+https://icons8.com/vue-static/landings/pricing/icons8-license.pdf
+-->
+
  * [Supported Platforms](#supported-platforms)
  * [Support and Contributions](#support-and-contributions)
  * [Source Code](#source-code)
@@ -28,7 +32,7 @@ From this repository you can build LTW game, all of the Contents are included.
  ## Supported Platforms
 
  We support only Windows and Linux right now.
- If there is a platform we don't support, please [make a request](https://github.com/TeaInside/LTW/issues) or [come help us](CONTRIBUTING.md) add it.
+ If there is a platform we don't support, please [make a request](https://github.com/ALiwoto/LTW/issues) or [come help us](CONTRIBUTING.md) add it.
 
  * Linux
    * Ubuntu 20.04
@@ -44,7 +48,7 @@ From this repository you can build LTW game, all of the Contents are included.
 
 ## Support and Contributions
 
-If you think you have found a bug or have a feature request, feel free to use our [issue tracker](https://github.com/TeaInside/LTW/issues). Before opening a new issue, please search to see if your problem has already been reported or not.  Try to be as detailed as possible in your issue reports.
+If you think you have found a bug or have a feature request, feel free to use our [issue tracker](https://github.com/ALiwoto/LTW/issues). Before opening a new issue, please search to see if your problem has already been reported or not.  Try to be as detailed as possible in your issue reports.
 
 If you need help using LTW or have other questions we suggest you to join our [telegram community](https://t.me/LTW_Game).  Please do not use the GitHub issue tracker for personal support requests.
 
@@ -63,10 +67,10 @@ If you are interested in contributing fixes or features to LTW, please read our 
 
 **Advanced topics:**
 - You can update your master branch by executing:
-  - git pull https://github.com/TeaInside/LTW.git master
+  - git pull https://github.com/ALiwoto/LTW.git master
 - If your master is tainted and any branch you make contains junk, you can do **hard reset**. All unmerged commits on master branch will be lost.
   - git checkout master
-  - git fetch https://github.com/TeaInside/LTW.git master
+  - git fetch https://github.com/ALiwoto/LTW.git master
   - git reset --hard FETCH_HEAD
   - git push --force origin master
 
@@ -75,7 +79,7 @@ If you are interested in contributing fixes or features to LTW, please read our 
 
 The full source code is available here from GitHub:
 
- * Clone the source: `git clone https://github.com/TeaInside/LTW.git`
+ * Clone the source: `git clone https://github.com/ALiwoto/LTW.git`
  * Open the solution `LTW.sln` or project file `LTW/LTW.csproj`
 
 For the prerequisites for building from source, please look at the [Requirements](REQUIREMENTS.md) file.

@@ -34,7 +34,7 @@ namespace LTW.Controls.Elements
 			}
 			//---------------------------------------------
 			//Border:
-			this.ChangeBorderF(ButtonColors.WhiteSmoke);
+			this.ChangeBorderF(InputBorders.NoBorder);
 			//priorities:
 			this.ChangePriority(ElementPriority.Normal);
 			//---------------------------------------------
@@ -252,8 +252,8 @@ namespace LTW.Controls.Elements
 		/// property will always be <see cref="ElementMovements.NoMovements"/>.
 		/// </summary>
 		/// <param name="movements">
-		/// no matter what is this value, the movements of a input elements will
-		/// never change!
+		/// no matter what is this value, the movements of a
+		//  input elements will never change!
 		/// </param>
 		public override void ChangeMovements(in ElementMovements movements)
 		{
@@ -288,24 +288,45 @@ namespace LTW.Controls.Elements
 		{
 			this._flat?.ChangeForeColor(color, w);
 		}
-		public void ChangeBorder(ButtonColors color)
+		public void ChangeBorder(InputBorders border)
 		{
-			if (this.BorderColor != color)
+			if (this.BorderColor != border)
 			{
-				this.BorderColor = color;
+				this.BorderColor = border;
 				this.ChangeBorder();
 			}
 		}
 		/// <summary>
-		/// change the size of this input element to it's default value.
+		/// change the size of this input element to the default 
+		/// values of height and width (they are non-zero constants).
 		/// </summary>
 		public void ChangeSize()
 		{
 			this.ChangeSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		}
-		private void ChangeBorderF(ButtonColors color)
+		/// <summary>
+		/// multiple the current width and height of this input element.
+		/// </summary>
+		/// <param name="multiple">
+		/// the float multiple number.
+		/// please do note that if this number is 0 or 1, there will be no
+		/// change applied to this element.
+		/// </param>
+		public void ChangeSize(float multiple)
 		{
-			this.BorderColor = color;
+			if (multiple == BASE_INDEX || multiple == PIXEL_BASE)
+			{
+				return;
+			}
+			float w = this.Width != BASE_INDEX ? this.Width :
+			DEFAULT_WIDTH;
+			float h = this.Height != BASE_INDEX ? this.Height :
+			DEFAULT_HEIGHT;
+			this.ChangeSize(multiple * w, multiple * h);
+		}
+		private void ChangeBorderF(InputBorders border)
+		{
+			this.BorderColor = border;
 			this.ChangeBorder();
 		}
 		private void ChangeBorder()
@@ -317,18 +338,30 @@ namespace LTW.Controls.Elements
 			this._flat.ChangeImageContent(GetContentBorderName());
 			switch (this.BorderColor)
 			{
-				case ButtonColors.WhiteSmoke:
+				case InputBorders.NoBorder:
 					this.ChangeForeColor(Color.WhiteSmoke);
 					break;
-				case ButtonColors.Red:
-					this.ChangeForeColor(Color.Red);
-					break;
-				case ButtonColors.GreenYellow:
-					this.ChangeForeColor(Color.GreenYellow);
-					break;
-				case ButtonColors.DarkGreen:
+				case InputBorders.DarkGreen:
 					this.ChangeForeColor(Color.DarkGreen);
-					break;
+					break;	
+				case InputBorders.Gold:
+					this.ChangeForeColor(Color.Gold);
+					break;	
+				case InputBorders.Goldenrod:
+					this.ChangeForeColor(Color.Goldenrod);
+					break;	
+				case InputBorders.Gray:
+					this.ChangeForeColor(Color.Gray);
+					break;	
+				case InputBorders.Green:
+					this.ChangeForeColor(Color.Green);
+					break;	
+				case InputBorders.Red:
+					this.ChangeForeColor(Color.Red);
+					break;	
+				case InputBorders.SkyBlue:
+					this.ChangeForeColor(Color.SkyBlue);
+					break;	
 				default:
 					break;
 			}
@@ -337,14 +370,22 @@ namespace LTW.Controls.Elements
 		{
 			switch (this.BorderColor)
 			{
-				case ButtonColors.WhiteSmoke:
-					return WhiteSmoke_Border_FileName;
-				case ButtonColors.Red:
-					return Red_Border_FileName;
-				case ButtonColors.GreenYellow:
-					return GreenYellow_Border_FileName;
-				case ButtonColors.DarkGreen:
+				case InputBorders.NoBorder:
+					return Nothing_Border_FileName;
+				case InputBorders.DarkGreen:
 					return DarkGreen_Border_FileName;
+				case InputBorders.Gold:
+					return Gold_Border_FileName;
+				case InputBorders.Goldenrod:
+					return Goldenrod_Border_FileName;
+				case InputBorders.Gray:
+					return Gray_Border_FileName;
+				case InputBorders.Green:
+					return Green_Border_FileName;
+				case InputBorders.Red:
+					return Red_Border_FileName;
+				case InputBorders.SkyBlue:
+					return SkyBlue_Border_FileName;
 				default:
 					return null;
 			}

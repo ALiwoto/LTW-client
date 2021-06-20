@@ -11,7 +11,7 @@ Please read this document completely before contributing to LTW.
 
 LTW has a `master` branch for stable releases and a `develop` branch for daily development.  New features and fixes are always submitted to the `develop` branch.
 
-If you are looking for ways to help, you should start by looking at the [Help Wanted tasks](https://github.com/TeaInside/LTW/issues?q=is%3Aissue+is%3Aopen+label%3A%22Help+Wanted%22).  Please let us know if you plan to work on an issue so that others are not duplicating work.
+If you are looking for ways to help, you should start by looking at the [Help Wanted tasks](https://github.com/ALiwoto/LTW/issues?q=is%3Aissue+is%3Aopen+label%3A%22Help+Wanted%22).  Please let us know if you plan to work on an issue so that others are not duplicating work.
 
 The LTW project follows standard [GitHub flow](https://guides.github.com/introduction/flow/index.html).  You should learn and be familiar with how to [use Git](https://help.github.com/articles/set-up-git/), how to [create a fork of LTW](https://help.github.com/articles/fork-a-repo/), and how to [submit a Pull Request](https://help.github.com/articles/using-pull-requests/).
 
