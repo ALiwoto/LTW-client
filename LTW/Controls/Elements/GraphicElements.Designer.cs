@@ -507,6 +507,9 @@ namespace LTW.Controls.Elements
 		{
 			Task.Run((() =>
 			{
+				// lock the mouse, so even if user changes
+				// its mouse location with speed of light,
+				// we change the location of this element.
 				this.LockMouse();
 				// Shock the element in another thread.
 				this.Shocker();
@@ -528,6 +531,12 @@ namespace LTW.Controls.Elements
 		{
 			Task.Run(() =>
 			{
+				// please unlock the mouse when user release
+				// it's mouse, thanks; but if you don't 
+				// unlock it, another graphic elements won't
+				// trigger their own events like MouseEnter,
+				// MouseDown, etc...
+				this.UnLockMouse();
 				// discharge the element in another thread.
 				this.Discharge();
 				// raise the event in another thread.

@@ -147,31 +147,40 @@ namespace LTW.Client
 			//news:
 			this.MyRes = new WotoRes(typeof(GameClient));
 			this.FirstFlatElement = new FlatElement(this, 
-				ElementMovements.VerticalHorizontalMovements);
+				ElementMovements.NoMovements);
 			ProfileWrongSandBox test = new();
+			InputElement testInput = new(this);
 			this.LoadMFBackGround();
 			//---------------------------------------------
 			//names:
 			this.FirstFlatElement.SetLabelName(FirstLabelNameInRes);
+			//status:
+			testInput.SetStatus(1);
 			//fontAndTextAligns:
 			this.FirstFlatElement.ChangeFont(this.FontManager.GetSprite(LTW_Fonts.LTW_tt_regular, 26));
+			testInput.ChangeFont(this.FontManager.GetSprite(LTW_Fonts.LTW_tt_regular, 25));
 			this.FirstFlatElement.ChangeAlignmation(StringAlignmation.MiddleCenter);
 			//priorities:
 			this.FirstFlatElement.ChangePriority(ElementPriority.Normal);
+			testInput.ChangePriority(ElementPriority.Normal);
 			//sizes:
 			this.FirstFlatElement.ChangeSize(this.Width / 6, this.Height / 6);
+			testInput.ChangeSize();
 			//ownering:
 			//locations:
 			this.FirstFlatElement.ChangeLocation((Width - FirstFlatElement.Width) -
 				(2 * SandBoxBase.from_the_edge),
 				(Height - FirstFlatElement.Height) - SandBoxBase.from_the_edge);
+			testInput.ChangeLocation(400, 100);
 			//movements:
-			this.FirstFlatElement.ChangeMovements(ElementMovements.HorizontalMovements);
 			//colors:
+			testInput.ChangeBorder(ButtonColors.GreenYellow);
 			this.FirstFlatElement.ChangeForeColor(SColor.DarkSeaGreen);
 			//enableds:
+			testInput.EnableMouseEnterEffect();
 			//texts:
 			this.FirstFlatElement.SetLabelText();
+			this.FirstFlatElement.SetLabelText(this.FirstFlatElement.Text);
 			//images:
 			this.FirstFlatElement.ChangeImage();
 			//applyAndShow:
@@ -179,17 +188,22 @@ namespace LTW.Client
 			this.FirstFlatElement.Show();
 			test.Apply();
 			test.Show();
+			testInput.Apply();
+			testInput.Show();
 			//events:
 			this.InitializeMainEvents();
 			//---------------------------------------------
 			//addRanges:
 			this.ElementManager.AddRange(
 				this.FirstFlatElement,
-				test);
+				test,
+				testInput);
 			//---------------------------------------------
 			//finalBlow:
 			//---------------------------------------------
 		}
+
+		
 		/// <summary>
 		/// add the main events.
 		/// </summary>
@@ -203,7 +217,7 @@ namespace LTW.Client
 			this.GameUniverse.MouseUp		+= WotoPlanet_MouseUp;
 			this.Window.TextInput			+= Window_TextInput;
 			//---------------------------------------------
-			#if !SETVER_TEST
+			#if SETVER_TEST
 			System.Net.Http.HttpClient test = new System.Net.Http.HttpClient();
 			test.BaseAddress = new Uri("https://ltw-game.herokuapp.com");
 			System.Net.Http.HttpRequestMessage ro = new System.Net.Http.HttpRequestMessage();

@@ -25,6 +25,7 @@ namespace LTW.Controls.Workers
             {
                 Index = _index,
             };
+			// make sure it's not added before
             _trigger.Tick -= _tick;
             _trigger.Tick += _tick;
         }
