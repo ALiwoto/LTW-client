@@ -148,7 +148,8 @@ namespace LTW.Client
 			this.MyRes = new WotoRes(typeof(GameClient));
 			this.FirstFlatElement = new FlatElement(this, 
 				ElementMovements.NoMovements);
-			ProfileWrongSandBox test = new();
+			LoginProfileSandBox test = new();
+			//ProfileWrongSandBox test = new();
 			InputElement testInput = new(this);
 			this.LoadMFBackGround();
 			//---------------------------------------------
