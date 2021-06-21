@@ -169,6 +169,21 @@ namespace LTW.Controls
 				}
 			}
 		}
+		public void SetTag(object tag)
+		{
+			if (!IsDisposed)
+			{
+				Tag = tag;
+			}
+		}
+		public void AddTick(TickHandler<Trigger> tick)
+		{
+			if (!IsDisposed)
+			{
+				Tick -= tick;
+				Tick += tick;
+			}
+		}
 		#endregion
         //-------------------------------------------------
     }

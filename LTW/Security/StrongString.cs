@@ -4,15 +4,13 @@
 // file 'LICENSE', which is part of the source code.
 
 using System;
+using Microsoft.Xna.Framework;
 using FontStashSharp;
 using WotoProvider.Interfaces;
 using LTW.Constants;
 using LTW.GameObjects.WMath;
 using LTW.GameObjects.UGW;
 using static LTW.Client.Universe;
-// ReSharper disable StringIndexOfIsCultureSpecific.1
-// ReSharper disable InconsistentNaming
-// ReSharper disable SuggestVarOrType_Elsewhere
 
 namespace LTW.Security
 {
@@ -589,7 +587,6 @@ namespace LTW.Security
 				return this;
 			}
 			ListW<StrongString> finalList = new ListW<StrongString>();
-			// ReSharper disable once HeapView.ObjectAllocation
 			StrongString[] myStrings = Split(SIGNED_CHAR1.ToString());
 			StrongString[] bySpace;
 			char[] chars;
@@ -878,6 +875,14 @@ namespace LTW.Security
 				return false;
 			}
 			return IsSignedChar(this[_index]);
+		}
+		public Vector2 MeasureString(SpriteFontBase f)
+		{
+			if (f == null)
+			{
+				return default;
+			}
+			return f.MeasureString(this.GetValue());
 		}
 		private bool _isVerified(in char _c)
 		{

@@ -217,3 +217,15 @@
 /processorParam:TextureFormat=Color
 /build:f_/m_/f_210620210264.png
 
+#begin f_/m_/f_210620210265.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:f_/m_/f_210620210265.png
+

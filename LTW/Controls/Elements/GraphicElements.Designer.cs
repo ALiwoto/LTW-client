@@ -88,24 +88,68 @@ namespace LTW.Controls.Elements
 		}
 		/// <summary>
 		/// Enable the element.
+		/// If the element is already enabled, this method
+		/// won't ignore `Manager.EnableAll()`.
+		/// It will call `Manager.EnableAll()` even if this
+		/// element is already enabled.
+		/// But if the element is disposed, this method won't
+		/// do anything. It won't call `Manager.EnableAll()` at all.
 		/// </summary>
 		public virtual void Enable()
 		{
-			if (!this.Enabled && !this.IsDisposed)
+			if (this.IsDisposed)
+			{
+				return;
+			}
+			if (!this.Enabled)
 			{
 				this.Enabled = true;
 			}
 			this.Manager?.EnableAll();
 		}
 		/// <summary>
-		/// Enable the owner mover.
+		/// Enable the element.
+		/// If the element is already enabled, this method
+		/// won't ignore `Manager.EnableAll()`.
+		/// It will call `Manager.EnableAll()` even if this
+		/// element is already enabled.
+		/// But if the element is disposed, this method won't
+		/// do anything. It won't call `Manager.EnableAll()` at all.
+		/// </summary>
+		/// <param name="childs">
+		/// set it to true if you want this method to enable all
+		/// children of this elemenet as well (if any exist).
+		/// </param>
+		public virtual void Enable(bool childs)
+		{
+			if (this.IsDisposed)
+			{
+				return;
+			}
+			if (!this.Enabled)
+			{
+				this.Enabled = true;
+			}
+			if (childs) 
+			{
+				this.Manager?.EnableAll();
+			}
+		}
+		/// <summary>
+		/// Enable the owner mover. <code></code>
 		/// NOTICE: if you enable the <see cref="OwnerMover"/>,
 		/// then it doesn't matter what is the <see cref="Movements"/> 
 		/// of this element, the element will shock it's owner
 		/// (if the owner is not null).
+		/// Please take note that if this element is disposed,
+		/// then this method will do nothing.
 		/// </summary>
 		public virtual void EnableOwnerMover()
 		{
+			if (this.IsDisposed) 
+			{
+				return;
+			}
 			if (!this.OwnerMover)
 			{
 				this.OwnerMover = true;
@@ -118,6 +162,10 @@ namespace LTW.Controls.Elements
 		/// </summary>
 		public virtual void DisableOwnerMover()
 		{
+			if (this.IsDisposed)
+			{
+				return;
+			}
 			if (this.OwnerMover)
 			{
 				this.OwnerMover = false;
@@ -125,9 +173,15 @@ namespace LTW.Controls.Elements
 		}
 		/// <summary>
 		/// Show the element.
+		/// If this element is disposed, this method
+		/// will do nothing.
 		/// </summary>
 		public virtual void Show()
 		{
+			if (this.IsDisposed)
+			{
+				return;
+			}
 			if (!this.Visible)
 			{
 				this.Visible = true;
@@ -154,6 +208,14 @@ namespace LTW.Controls.Elements
 		/// </summary>
 		public virtual void Barren()
 		{
+			// please don't check `if (this.IsDisposed)` here,
+			// because there is possibility that a user
+			// wants to make this element barren after
+			// disposing it.
+			// it won't do any hurt, but it's useless at this
+			// point. so let it be. all the childern will be
+			// disposen at this point (of course if they exist
+			// in the first place).
 			if (!this.IsBarren)
 			{
 				this.Manager?.DisposeAll();
@@ -162,9 +224,15 @@ namespace LTW.Controls.Elements
 		}
 		/// <summary>
 		/// Shock the <see cref="MoveManager"/> of the element.
+		/// If this element is disposed or is hidden, this method
+		/// won't do anything.
 		/// </summary>
 		public virtual void Shocker()
 		{
+			if (this.IsDisposed || !this.Visible)
+			{
+				return;
+			}
 			if (this.WasMouseIn())
 			{
 				if (this.OwnerMover)
@@ -190,8 +258,23 @@ namespace LTW.Controls.Elements
 				}
 			}
 		}
+
+		/// <summary>
+		/// Shock the <see cref="MoveManager"/> of the element and
+		/// specify which child shocked it.
+		/// If this element is disposed or is hidden, this method
+		/// won't do anything.
+		/// </summary>
+		/// <param name="child">
+		/// In most situations you have to send `this` for 
+		/// this argument.
+		/// </param>
 		public virtual void Shocker(GraphicElements child)
 		{
+			if (this.IsDisposed || !this.Visible)
+			{
+				return;
+			}
 			if (this.WasMouseIn())
 			{
 				if (this.OwnerMover)
@@ -221,8 +304,19 @@ namespace LTW.Controls.Elements
 			}
 		}
 		
+		/// <summary>
+		/// Lock the mouse on this element, so even if we
+		/// change the location of the mouse with high speed,
+		/// it doesn't bug out.
+		/// If the element is disposed or it's hidden,
+		/// this method won't work.
+		/// </summary>
 		public virtual void LockMouse()
 		{
+			if (this.IsDisposed || !this.Visible)
+			{
+				return;
+			}
 			if (!this.IsMouseLocked)
 			{
 				this.IsMouseLocked = true;
@@ -230,8 +324,17 @@ namespace LTW.Controls.Elements
 			}
 		}
 
+		/// <summary>
+		/// Unlock the mouse so we don't move this element
+		/// according to mouse moves.
+		/// </summary>
 		public virtual void UnLockMouse()
 		{
+			// please do not check if this element is
+			// already disposed or not.
+			// it will cause some bugs, because it's possible
+			// that we call this method after calling `Dispose` method.
+			// so please take note of that.
 			if (this.IsMouseLocked)
 			{
 				this.IsMouseLocked = false;

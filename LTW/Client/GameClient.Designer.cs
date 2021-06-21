@@ -148,7 +148,7 @@ namespace LTW.Client
 			this.MyRes = new WotoRes(typeof(GameClient));
 			this.FirstFlatElement = new FlatElement(this, 
 				ElementMovements.NoMovements);
-			LoginProfileSandBox test = new();
+			//LoginProfileSandBox test = new();
 			//ProfileWrongSandBox test = new();
 			InputElement testInput = new(this);
 			this.LoadMFBackGround();
@@ -161,6 +161,7 @@ namespace LTW.Client
 			this.FirstFlatElement.ChangeFont(this.FontManager.GetSprite(LTW_Fonts.LTW_tt_regular, 26));
 			testInput.ChangeFont(this.FontManager.GetSprite(LTW_Fonts.LTW_tt_regular, 25));
 			this.FirstFlatElement.ChangeAlignmation(StringAlignmation.MiddleCenter);
+			testInput.ChangeAlignmation(StringAlignmation.MiddleCenter);
 			//priorities:
 			this.FirstFlatElement.ChangePriority(ElementPriority.Normal);
 			testInput.ChangePriority(ElementPriority.Normal);
@@ -179,6 +180,7 @@ namespace LTW.Client
 			this.FirstFlatElement.ChangeForeColor(SColor.DarkSeaGreen);
 			//enableds:
 			testInput.EnableMouseEnterEffect();
+			testInput.Focus(true);
 			//texts:
 			this.FirstFlatElement.SetLabelText();
 			this.FirstFlatElement.SetLabelText(this.FirstFlatElement.Text);
@@ -187,8 +189,8 @@ namespace LTW.Client
 			//applyAndShow:
 			this.FirstFlatElement.Apply();
 			this.FirstFlatElement.Show();
-			test.Apply();
-			test.Show();
+			//test.Apply();
+			//test.Show();
 			testInput.Apply();
 			testInput.Show();
 			//events:
@@ -197,7 +199,7 @@ namespace LTW.Client
 			//addRanges:
 			this.ElementManager.AddRange(
 				this.FirstFlatElement,
-				test,
+				//test,
 				testInput);
 			//---------------------------------------------
 			//finalBlow:

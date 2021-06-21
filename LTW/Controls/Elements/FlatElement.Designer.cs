@@ -292,7 +292,22 @@ namespace LTW.Controls.Elements
 		#endregion
 		//-------------------------------------------------
 		#region Get Method's Region
-		
+		public virtual Vector2 GetTextLocation()
+		{
+			return this.TextLocation;
+		}
+		public virtual Vector2 GetFinalTextLocation()
+		{
+			if (StrongString.IsNullOrEmpty(this.FixedText) ||
+				this.Font == null)
+			{
+				return this.GetTextLocation();
+			}
+
+			var l = this.GetTextLocation();
+			var fl = this.FixedText.MeasureString(this.Font);
+			return new(l.X + fl.X, l.Y);
+		}
 		#endregion
 		//-------------------------------------------------
 	}

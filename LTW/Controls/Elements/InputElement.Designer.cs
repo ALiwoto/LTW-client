@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using FontStashSharp;
 using WotoProvider.Enums;
+using WotoProvider.EventHandlers;
 using LTW.Security;
 using LTW.Controls.Moving;
 using TheMouseInput = Microsoft.Xna.Framework.Input;
@@ -32,15 +33,26 @@ namespace LTW.Controls.Elements
 				this.Manager?.DisposeAll();
 				this.Manager = null;
 			}
+			checkLinerTexture(); // supposed to be a `new` kind, so it's here
 			//---------------------------------------------
-			//Border:
-			this.ChangeBorderF(InputBorders.NoBorder);
+			//names:
+			//status:
+			//fontAndTextAligns:
 			//priorities:
 			this.ChangePriority(ElementPriority.Normal);
-			//---------------------------------------------
-			//Applies:
+			//sizes:
+			this.ChangeLinerSize();
+			//ownering:
+			//locations:
+			this.ChangeLinerPos();
+			//movements:
+			//colors:
+			this.ChangeBorderF(InputBorders.NoBorder);
+			//enableds:
+			//texts:
+			//images:
+			//applyAndShow:
 			this._flat.Apply();
-			//shows:
 			this._flat.Show();
 			//---------------------------------------------
 			//events:
@@ -67,8 +79,19 @@ namespace LTW.Controls.Elements
 				// it means this element should not draw itself, so return
 				return;
 			}
-			// draw the surface of the input.
+			// draw the surface of the input element.
 			this._flat?.Draw(gameTime, spriteBatch);
+			if (this.Focused && _linerTexture != null)
+			{
+				if (_showLiner)
+				{
+					spriteBatch.Begin();
+					spriteBatch.Draw(_linerTexture,
+						new Rectangle(_linerPosition.ToPoint(), _linerSize.ToPoint()),
+						Color.White);
+					spriteBatch.End();
+				}
+			}
 		}
 		#endregion
 		//-------------------------------------------------
@@ -175,18 +198,22 @@ namespace LTW.Controls.Elements
 		public override void SetLabelText()
 		{
 			this._flat?.SetLabelText();
+			this.ChangeLinerPos();
 		}
 		public override void SetLabelText(in StrongString customValue)
 		{
 			this._flat?.SetLabelText(in customValue);
+			this.ChangeLinerPos();
 		}
 		public override void ChangeSize(in float w, in float h)
 		{
 			this._flat?.ChangeSize(in w, in h);
+			this.ChangeLinerSize();
 		}
 		public override void ChangeSize(in int w, in int h)
 		{
 			this._flat?.ChangeSize(in w, in h);
+			this.ChangeLinerSize();
 		}
 
 		public override void ChangeLocation(in float x, in float y)
@@ -202,6 +229,7 @@ namespace LTW.Controls.Elements
 			{
 				this._flat?.ChangeLocation(in x, in y);
 			}
+			this.ChangeLinerPos();
 		}
 		public override void ChangeLocation(in int x, in int y)
 		{
@@ -216,6 +244,7 @@ namespace LTW.Controls.Elements
 			{
 				this._flat?.ChangeLocation(in x, in y);
 			}
+			this.ChangeLinerPos();
 		}
 		public override void ChangeLocation(in Vector2 location)
 		{
@@ -229,6 +258,7 @@ namespace LTW.Controls.Elements
 			{
 				this._flat?.ChangeLocation(in location);
 			}
+			this.ChangeLinerPos();
 		}
 		public override void OwnerLocationUpdate()
 		{
@@ -245,6 +275,7 @@ namespace LTW.Controls.Elements
 		public override void ChangeText(in StrongString text)
 		{
 			this._flat?.ChangeText(in text);
+			this.ChangeLinerPos();
 		}
 		/// <summary>
 		/// WARNING: since the input elements cannot be moveable, 
@@ -253,7 +284,7 @@ namespace LTW.Controls.Elements
 		/// </summary>
 		/// <param name="movements">
 		/// no matter what is this value, the movements of a
-		//  input elements will never change!
+		/// input element will never change!
 		/// </param>
 		public override void ChangeMovements(in ElementMovements movements)
 		{
@@ -277,6 +308,7 @@ namespace LTW.Controls.Elements
 			// I won't let this happens!
 			// You shall NOT pass!
 		}
+		
 		#endregion
 		//-------------------------------------------------
 		#region Set Method's Region
@@ -323,6 +355,10 @@ namespace LTW.Controls.Elements
 			float h = this.Height != BASE_INDEX ? this.Height :
 			DEFAULT_HEIGHT;
 			this.ChangeSize(multiple * w, multiple * h);
+			// do NOT update the liner size here again,
+			// we have already done that in another overloaded method,
+			// so there is no need to do it again.
+			// this.ChangeLinerSize();
 		}
 		private void ChangeBorderF(InputBorders border)
 		{
@@ -392,10 +428,135 @@ namespace LTW.Controls.Elements
 		}
 		#endregion
 		//-------------------------------------------------
+		#region Set Method's Region
+		public StringAlignmation GetAlignmation()
+		{
+			if (this._flat == null)
+			{
+				return default;
+			}
+			return this._flat.Alignmation;
+		}
+		#endregion
+		//-------------------------------------------------
 		#region ordinary Method's Region
+		/// <summary>
+		/// focus on this input element so it get input
+		/// from the user.
+		/// </summary>
+		public virtual void Focus()
+		{
+			var b = this.IsDisposed || !this.IsApplied || 
+				!this.Visible || !this.Enabled;
+			if (b)
+			{
+				return;
+			}
+			if (!this.Focused)
+			{
+				this.Focused = true;
+			}
+		}
+		/// <summary>
+		/// focus on this input element so it get input
+		/// from the user.
+		/// </summary>
+		public virtual void Focus(bool force)
+		{
+			var b = (!this.IsDisposed) && ((this.IsApplied && 
+				this.Visible && this.Enabled) || force);
+			if (!b)
+			{
+				return;
+			}
+			if (!this.Focused)
+			{
+				this.Focused = true;
+			}
+		}
+		/// <summary>
+		/// focus on this input element so it won't get any inputs
+		/// from the user.
+		/// </summary>
+		public virtual void UnFocus()
+		{
+			if (this.Focused)
+			{
+				this.Focused = false;
+			}
+		}
 		internal void EnableMouseEnterEffect()
 		{
 			this.UseMouseEnterEffect = true;
+		}
+		private void checkLinerTexture()
+		{
+			if (Content == null)
+			{
+				return;
+			}
+			if (_linerTexture == null || _linerTexture.IsDisposed)
+			{
+				_linerTexture = Content.Load<Texture2D>(Line_Violet_FileName);
+			}
+			if (_lineTrigger == null || _lineTrigger.IsDisposed) 
+			{
+				_lineTrigger = new();
+			}
+			_lineTrigger?.SetInterval(LINER_INTERVAL);
+			_lineTrigger?.AddTick(Liner_Tick);
+			_lineTrigger?.SetTag(this);
+			_lineTrigger?.Start();
+			_linerPosition = default;
+		}
+		private void ChangeLinerSize()
+		{
+			_linerSize = new(_linerTexture.Width, 3 * (this.Height / 5));
+		}
+		private void ChangeLinerPos()
+		{
+			if (_linerTexture == null || this._flat == null)
+			{
+				return;
+			}
+			var w = _linerSize.X;
+			var h = _linerSize.Y;
+			if (w == default || h == default)
+			{
+				return;
+			}
+			var l = this._flat.GetFinalTextLocation();
+			var y = this.RealPosition.Y + 
+				((this.Height / 2) - (h / 2));
+			float x;
+			if (this.GetAlignmation() == StringAlignmation.MiddleCenter)
+			{
+				x = this.RealPosition.X + (this.Width / 2);
+			}
+			else
+			{
+				x = l.X == default ? LINER_EDGE : l.X;
+				x += this.RealPosition.X;
+			}
+			_linerPosition = new(x, y);
+		}
+		private void Liner_Tick(Trigger sender, TickHandlerEventArgs<Trigger> handler)
+		{
+			var t = sender.Tag;
+			if (sender.Tag is InputElement me)
+			{
+				if (this == me)
+				{
+					if (_showLiner)
+					{
+						_showLiner = false;
+					}
+					else
+					{
+						_showLiner = true;
+					}
+				}
+			}
 		}
 		#endregion
 		//-------------------------------------------------
@@ -404,7 +565,6 @@ namespace LTW.Controls.Elements
 		{
 			if (this.InMouseEnterEffect)
 			{
-
 				try 
 				{
 					TheMouseInput.Mouse.SetCursor(TheMouseInput.MouseCursor.Arrow);
@@ -435,40 +595,6 @@ namespace LTW.Controls.Elements
 					// since it's not a necessary feature to change the
 					// cursor, we don't need to throw the exception anyway.
 				}
-				
-				//var pos = this.RealPosition.ToPoint();
-				//var size = this.Rectangle.Size;
-				//this._real_rect = new(pos, size);
-				//if (this._eff_rect.HasValue && !this.HasOwner)
-				//{
-					// this.ChangeRectangle(this._eff_rect.Value);
-					// effect goes here:
-
-
-				//	this.InMouseEnterEffect = true;
-				//}
-				//else
-				//{
-				//	var offSet_x = ME_EFFECT_OFFSET * this.Width;
-				//	var offSet_y = ME_EFFECT_OFFSET * this.Height;
-				//	this.ChangeSize(offSet_x, offSet_y);
-				//	var offShort_x = ME_EFFECT_OFFSHORT * this.Width;
-				//	var offShort_y = ME_EFFECT_OFFSHORT * this.Height;
-				//	float pos_x, pos_y;
-				//	if (this.HasOwner && this.Owner != null)
-				//	{
-				//		pos_x = this.RealPosition.X - offShort_x;
-				//		pos_y = this.RealPosition.Y - offShort_y;
-				//	}
-				//	else
-				//	{
-				//		pos_x = this.Position.X - offShort_x;
-				//		pos_y = this.Position.Y - offShort_y;
-				//	}
-				//	this.ChangeLocation(pos_x, pos_y);
-				//	this._eff_rect = this._flat.Rectangle;
-				//	this.InMouseEnterEffect = true;
-				//}
 			}
 		}
 		#endregion

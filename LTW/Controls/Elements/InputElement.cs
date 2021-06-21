@@ -4,7 +4,9 @@
 // file 'LICENSE', which is part of the source code.
 
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using LTW.Security;
+using LTW.Controls;
 using System;
 using WotoProvider.Enums;
 
@@ -22,8 +24,11 @@ namespace LTW.Controls.Elements
         public const string Nothing_Border_FileName		= "f_\\m_\\f_210620210262";
         public const string Red_Border_FileName			= "f_\\m_\\f_210620210263";
         public const string SkyBlue_Border_FileName		= "f_\\m_\\f_210620210264";
-        public const int DEFAULT_WIDTH                  = 190;
-        public const int DEFAULT_HEIGHT                 = 50;
+		public const string Line_Violet_FileName		= "f_\\m_\\f_210620210265";
+        public const int DEFAULT_WIDTH					= 190;
+        public const int DEFAULT_HEIGHT					= 50;
+		public const int LINER_INTERVAL					= 650;
+		public const int LINER_EDGE 					= 7;
         #endregion
         //-------------------------------------------------
         #region Properties Region
@@ -137,6 +142,7 @@ namespace LTW.Controls.Elements
         public virtual InputBorders BorderColor { get; protected set; }
         public virtual bool UseMouseEnterEffect { get; protected set; }
         public virtual bool InMouseEnterEffect { get; protected set; }
+		public virtual bool Focused { get; protected set; }
         #endregion
         //-------------------------------------------------
         #region field's Region
@@ -145,11 +151,16 @@ namespace LTW.Controls.Elements
         /// use this to draw the surface graphics.
         /// </summary>
         private FlatElement _flat;
-        //private Rectangle _real_rect;
-//#nullable enable
-//        private Rectangle? _eff_rect;
-//#nullable disable
         #endregion
+        //-------------------------------------------------
+		#region static field's Region
+		private static Texture2D _linerTexture;
+		private static Trigger _lineTrigger;
+		private static Vector2 _linerPosition;
+		private static Vector2 _linerSize;
+		private static bool _showLiner;
+
+		#endregion
         //-------------------------------------------------
         #region event field's Region
         internal override event EventHandler LeftClick
