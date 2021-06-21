@@ -1,0 +1,21 @@
+/**
+ * Last Testament of Wanderers 
+ * Copyright (C) 2019 - 2021 ALiwoto
+ * This file is subject to the terms and conditions defined in
+ * file 'LICENSE', which is part of the source code.
+ * =======================================================
+ * this file has been written by debarchitodev: 
+ * https://github.com/debarchitodev
+*/
+
+input {
+    margin: 1.12em;
+    padding: 15px;
+    background: #111111;
+    color: #afafaf;
+    font-size: 4.12em;
+    border-radius: 10px;
+    border: 3px solid lightgrey;
+    opacity: 0.8;
+    box-shadow: 1px 1px 15px 2px white
+}
