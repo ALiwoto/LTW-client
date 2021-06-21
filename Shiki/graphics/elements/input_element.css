@@ -7,3 +7,12 @@
 	This file is written by debarchitodev:
 	https://github.com/debarchitodev
 */
+x-button {
+   background: transparent;
+   font-size: 4.12em;
+   font-weight: 900;
+   padding: 4px 16px 0px 14px;
+   border: 2px solid #ff2647;
+   border-radius: 15px;
+   color: #ff2647;
+}
