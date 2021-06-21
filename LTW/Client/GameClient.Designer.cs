@@ -179,8 +179,10 @@ namespace LTW.Client
 			testInput.ChangeBorder(InputBorders.Goldenrod);
 			this.FirstFlatElement.ChangeForeColor(SColor.DarkSeaGreen);
 			//enableds:
+			this.FirstFlatElement.Enable(true);
+			testInput.Enable(true);
 			testInput.EnableMouseEnterEffect();
-			testInput.Focus(true);
+			//testInput.Focus(true);
 			//texts:
 			this.FirstFlatElement.SetLabelText();
 			this.FirstFlatElement.SetLabelText(this.FirstFlatElement.Text);
@@ -201,6 +203,21 @@ namespace LTW.Client
 				this.FirstFlatElement,
 				//test,
 				testInput);
+				this.FirstFlatElement.Click += 
+				(object sender, EventArgs e) => 
+				{
+					Console.WriteLine("fuck you Click");
+				};
+				this.FirstFlatElement.LeftClick += 
+				(object sender, EventArgs e) => 
+				{
+					Console.WriteLine("fuck you left");
+				};
+				this.FirstFlatElement.RightClick += 
+				(object sender, EventArgs e) => 
+				{
+					Console.WriteLine("fuck you right");
+				};
 			//---------------------------------------------
 			//finalBlow:
 			//---------------------------------------------
@@ -437,6 +454,26 @@ namespace LTW.Client
 		}
 		#endregion
 		//-------------------------------------------------
+		#region Set Method's Region
+		public void ActivateInputable(IInputable inputElement)
+		{
+			if (inputElement == null || inputElement == this.InputElement)
+			{
+				return;
+			}
+			this.InputElement = inputElement;
+			this.InputElement.Focus(true);
+		}
+		public void DeactiveInputable()
+		{
+			if (this.InputElement != null)
+			{
+				this.InputElement?.UnFocus();
+				this.InputElement = null;
+			}
+		}
+		#endregion
+		//-------------------------------------------------
 		#region event Method's Region
 		private void WotoPlanet_MouseUp(object sender, MouseEventArgs e)
 		{
@@ -444,6 +481,7 @@ namespace LTW.Client
 			{
 				if (this.IsLeftDown)
 				{
+					this.PreviousLeftDownPoint = this.LeftDownPoint;
 					this.LeftDownPoint = null;
 					this.IsLeftDown = false;
 				}
@@ -452,6 +490,7 @@ namespace LTW.Client
 			{
 				if (this.IsRightDown)
 				{
+					this.PreviousRightDownPoint = this.RightDownPoint;
 					this.RightDownPoint = null;
 					this.IsRightDown = false;
 				}
@@ -481,8 +520,9 @@ namespace LTW.Client
 
 		private void Window_TextInput(object sender, TextInputEventArgs e)
 		{
-			this.FirstFlatElement.ChangeText(
-				this.FirstFlatElement.Text.Append(e.Character, true));
+			this.InputElement?.InputEvent(sender, e);
+			//this.FirstFlatElement.ChangeText(
+				//this.FirstFlatElement.Text.Append(e.Character, true));
 		}
 		#endregion
 		//-------------------------------------------------

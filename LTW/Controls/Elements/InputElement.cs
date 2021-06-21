@@ -5,14 +5,14 @@
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using FontStashSharp;
 using LTW.Security;
-using LTW.Controls;
 using System;
 using WotoProvider.Enums;
 
 namespace LTW.Controls.Elements
 {
-	public partial class InputElement : GraphicElements
+	public partial class InputElement : GraphicElements, IInputable
 	{
 		//-------------------------------------------------
         #region Constant's Region
@@ -128,7 +128,37 @@ namespace LTW.Controls.Elements
             }
         }
         public override Vector2 RealPosition { get; protected set; }
-        public override Color BackGroundColor
+		public override StrongString Text
+		{
+			get
+			{
+				if (this._flat == null)
+				{
+					return StrongString.Empty;
+				}
+				return this._flat.Text;
+			}
+			protected set
+			{
+				this._flat?.ChangeText(value);
+			}
+		}
+        public override SpriteFontBase Font
+		{
+			get
+			{
+				if (this._flat == null)
+				{
+					return null;
+				}
+				return this._flat.Font;
+			}
+			protected set
+			{
+				this._flat?.ChangeFont(value);
+			}
+		}
+		public override Color BackGroundColor
         {
             get
             {

@@ -982,7 +982,7 @@ namespace LTW.Security
 				{
 					if (s.Length > 0)
 					{
-						s += "\n";
+						s += SIGNED_CHAR1;
 					}
 					break;
 				}

@@ -130,6 +130,7 @@ namespace LTW.Controls.Elements
 		}
 		protected internal override void OnLeftClick()
 		{
+			BigFather?.ActivateInputable(this);	
 			Task.Run((() =>
 			{
 				this._flat?.OnLeftClick();
@@ -426,9 +427,6 @@ namespace LTW.Controls.Elements
 					return null;
 			}
 		}
-		#endregion
-		//-------------------------------------------------
-		#region Set Method's Region
 		public StringAlignmation GetAlignmation()
 		{
 			if (this._flat == null)
@@ -529,20 +527,20 @@ namespace LTW.Controls.Elements
 			var y = this.RealPosition.Y + 
 				((this.Height / 2) - (h / 2));
 			float x;
-			if (this.GetAlignmation() == StringAlignmation.MiddleCenter)
+			if (this.GetAlignmation() == StringAlignmation.MiddleCenter
+				&& l.X == default)
 			{
 				x = this.RealPosition.X + (this.Width / 2);
 			}
 			else
 			{
-				x = l.X == default ? LINER_EDGE : l.X;
-				x += this.RealPosition.X;
+				x = l.X == default ? 
+				this.RealPosition.X + LINER_EDGE : l.X;
 			}
 			_linerPosition = new(x, y);
 		}
 		private void Liner_Tick(Trigger sender, TickHandlerEventArgs<Trigger> handler)
 		{
-			var t = sender.Tag;
 			if (sender.Tag is InputElement me)
 			{
 				if (this == me)
@@ -561,6 +559,38 @@ namespace LTW.Controls.Elements
 		#endregion
 		//-------------------------------------------------
 		#region event Method's Region
+		public void InputEvent(object sender, TextInputEventArgs e)
+		{
+			if (this.Font == null)
+			{
+				return;
+			}
+			var c = e.Character;
+			// newline character is not supported (yet).
+			if (c == StrongString.SIGNED_CHAR1)
+			{
+				return;
+			}
+			if (this.Text == null)
+			{
+				this.ChangeText(StrongString.Empty.Append(e.Character, true));
+				return;
+			}
+			else
+			{
+				var m = this.Text.Append(c).MeasureString(this.Font);
+				// check if the characters' width is more than
+				// our input element width or not.
+				if (m.X >= this.Width - LINER_EDGE)
+				{
+					if (e.Character != StrongString.UNSIGNED_CHAR1)
+					{
+						return;
+					}
+				}
+			}
+			this.ChangeText(this.Text.Append(e.Character, true));
+		}
 		private void _flat_MouseLeave(object sender, EventArgs e)
 		{
 			if (this.InMouseEnterEffect)

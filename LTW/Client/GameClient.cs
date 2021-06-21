@@ -59,10 +59,13 @@ namespace LTW.Client
         public Texture2D BackGroundTexture { get; private set; }
         internal RequestType Request { get; set; }
         internal MouseState LastMouseState { get; private set; }
+		internal IInputable InputElement { get; private set; }
         internal MouseState CurrentState { get; private set; }
 	#nullable enable
         internal Point? LeftDownPoint { get; private set; }
+        internal Point? PreviousLeftDownPoint { get; private set; }
         internal Point? RightDownPoint { get; private set; }
+        internal Point? PreviousRightDownPoint { get; private set; }
 	#nullable disable
         //public SoundPlayer SoundPlayer { get; set; }
         public int Width

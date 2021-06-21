@@ -13,9 +13,7 @@ using LTW.SandBox;
 using LTW.Security;
 using LTW.Constants;
 using LTW.Controls.Moving;
-using LTW.GameObjects.WMath;
 using M_Manager = LTW.Controls.Moving.MoveManager;
-using Color  = System.Drawing.Color;
 using XColor = Microsoft.Xna.Framework.Color;
 using XPoint = Microsoft.Xna.Framework.Point;
 using XRectangle = Microsoft.Xna.Framework.Rectangle;
@@ -450,6 +448,10 @@ namespace LTW.Controls.Elements
 		/// </summary>
 		internal virtual void MouseChange()
 		{
+			if (!this.Enabled || !this.Visible)
+			{
+				return;
+			}
 			// check if the mouse only is in the region of this element or not.
 			if (!this.MouseHere() && this.MouseIn())
 			{
@@ -540,6 +542,7 @@ namespace LTW.Controls.Elements
 			{
 				// raise the event in another thread.
 				this.LeftClick?.Invoke(this, null);
+				this.Click?.Invoke(this, null);
 			});
 		}
 		/// <summary>
@@ -558,6 +561,7 @@ namespace LTW.Controls.Elements
 			{
 				// raise the event in another thread.
 				this.RightClick?.Invoke(this, null);
+				this.Click?.Invoke(this, null);
 			}));
 		}
 		/// <summary>
@@ -608,6 +612,10 @@ namespace LTW.Controls.Elements
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		protected internal virtual void OnLeftDown()
 		{
+			if (BigFather.InputElement != this)
+			{
+				BigFather.DeactiveInputable();
+			}
 			Task.Run((() =>
 			{
 				// lock the mouse, so even if user changes
@@ -658,6 +666,10 @@ namespace LTW.Controls.Elements
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		protected internal virtual void OnRightDown()
 		{
+			if (BigFather.InputElement != this)
+			{
+				BigFather.DeactiveInputable();
+			}
 			Task.Run((() =>
 			{
 				// raise the event in another thread.
@@ -705,8 +717,8 @@ namespace LTW.Controls.Elements
 		{
 			this._checkLeftDown();
 			this._checkRightDown();
-			this._checkLeftClick();
-			this._checkRightClick();
+			// this._checkLeftClick(); moved to _checkLeftDown
+			// this._checkRightClick();
 		}
 		/// <summary>
 		/// check for left click.
@@ -715,10 +727,10 @@ namespace LTW.Controls.Elements
 		{
 			if (this.LeftDownOnce)
 			{
-				if (!this.IsLeftDown)
+				if (!this.IsLeftDown || !BigFather.IsLeftDown)
 				{
 					this.LeftDownOnce = false;
-					var _p1 = BigFather.LeftDownPoint;
+					var _p1 = BigFather.PreviousLeftDownPoint;
 					var _p2 = BigFather.CurrentState.Position;
 					if (_p1 == null)
 					{
@@ -743,7 +755,7 @@ namespace LTW.Controls.Elements
 				if (!this.IsRightDown)
 				{
 					this.RightDownOnce = false;
-					var _p1 = BigFather.LeftDownPoint;
+					var _p1 = BigFather.PreviousRightDownPoint;
 					var _p2 = BigFather.CurrentState.Position;
 					if (_p1 == null)
 					{
@@ -786,8 +798,8 @@ namespace LTW.Controls.Elements
 				if (!BigFather.IsLeftDown)
 				{
 					this.IsLeftDown = false;
-					this.invalidOnce();
 					this.OnLeftUp();
+					this._checkLeftClick();
 				}
 			}
 		}
@@ -820,6 +832,7 @@ namespace LTW.Controls.Elements
 				{
 					this.IsRightDown = false;
 					this.OnRightUp();
+					this._checkRightClick();
 				}
 			}
 		}
