@@ -125,11 +125,10 @@
     <value>Exit</value>
   </data>
   <data name="Label1_In_SandBox_E1" xml:space="preserve">
-    <value>Connection Closed!</value>
+    <value>test title!</value>
   </data>
   <data name="Label2_In_SandBox_E1" xml:space="preserve">
-    <value>Connection is closed now!
-Please close the game and load it again.</value>
+    <value>this is a test for body.</value>
   </data>
   <data name="SandBoxButton1_Name" xml:space="preserve">
     <value>Button1_In_SandBox</value>
