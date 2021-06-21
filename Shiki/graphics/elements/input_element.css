@@ -7,12 +7,20 @@
 	This file is written by debarchitodev:
 	https://github.com/debarchitodev
 */
-x-button {
-   background: transparent;
-   font-size: 4.12em;
-   font-weight: 900;
-   padding: 4px 16px 0px 14px;
-   border: 2px solid #ff2647;
-   border-radius: 15px;
-   color: #ff2647;
-}
+
+<body>
+<style>
+  input {
+    margin: 1.12em;
+    padding: 15px;
+    background: #111111;
+    color: #afafaf;
+    font-size: 4.12em;
+    border-radius: 10px;
+    border: 3px solid lightgrey;
+    opacity: 0.8;
+    box-shadow: 1px 1px 15px 2px white
+  }
+</style>
+<input/>
+</body>
