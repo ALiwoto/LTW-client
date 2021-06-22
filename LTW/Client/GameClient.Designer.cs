@@ -20,11 +20,7 @@ using LTW.Controls.Elements;
 using LTW.GameObjects.Resources;
 using LTW.SandBox.ErrorSandBoxes;
 using Microsoft.Xna.Framework.Input;
-//using FontStashSharp;
-using LTW.Security;
-using SColor = Microsoft.Xna.Framework.Color;
 using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
-using Point = Microsoft.Xna.Framework.Point;
 
 namespace LTW.Client
 {
@@ -104,13 +100,13 @@ namespace LTW.Client
 			this.FirstFlatElement.ChangeMovements(ElementMovements.VerticalMovements);
 			_f1.ChangeMovements(ElementMovements.VerticalHorizontalMovements);
 			//colors:
-			// this.FirstFlatElement.ChangeBackColor(SColor.Red);
-			this.FirstFlatElement.ChangeForeColor(SColor.DarkSeaGreen);
+			// this.FirstFlatElement.ChangeBackColor(Color.Red);
+			this.FirstFlatElement.ChangeForeColor(Color.DarkSeaGreen);
 			test.ChangeBorder(WotoProvider.Enums.ButtonColors.WhiteSmoke);
-			_f1.ChangeBackColor(new SColor(SColor.Orange, 0.5f));
-			_f2.ChangeBackColor(SColor.Blue);
-			_f2.ChangeForeColor(new SColor(SColor.Red, 0.7f));
-			//test.ChangeForeColor(SColor.Red);
+			_f1.ChangeBackColor(new Color(Color.Orange, 0.5f));
+			_f2.ChangeBackColor(Color.Blue);
+			_f2.ChangeForeColor(new Color(Color.Red, 0.7f));
+			//test.ChangeForeColor(Color.Red);
 			//enableds:
 			test.EnableMouseEnterEffect();
 			//texts:
@@ -148,7 +144,7 @@ namespace LTW.Client
 			this.MyRes = new WotoRes(typeof(GameClient));
 			this.FirstFlatElement = new FlatElement(this, 
 				ElementMovements.NoMovements);
-			//LoginProfileSandBox test = new();
+			LoginProfileSandBox test = new();
 			//ProfileWrongSandBox test = new();
 			InputElement testInput = new(this);
 			this.LoadMFBackGround();
@@ -177,12 +173,12 @@ namespace LTW.Client
 			//movements:
 			//colors:
 			testInput.ChangeBorder(InputBorders.Goldenrod);
-			this.FirstFlatElement.ChangeForeColor(SColor.DarkSeaGreen);
+			this.FirstFlatElement.ChangeForeColor(Color.DarkSeaGreen);
 			//enableds:
 			this.FirstFlatElement.Enable(true);
 			testInput.Enable(true);
 			testInput.EnableMouseEnterEffect();
-			//testInput.Focus(true);
+			testInput.Focus(true);
 			//texts:
 			this.FirstFlatElement.SetLabelText();
 			this.FirstFlatElement.SetLabelText(this.FirstFlatElement.Text);
@@ -201,23 +197,8 @@ namespace LTW.Client
 			//addRanges:
 			this.ElementManager.AddRange(
 				this.FirstFlatElement,
-				//test,
+				test,
 				testInput);
-				this.FirstFlatElement.Click += 
-				(object sender, EventArgs e) => 
-				{
-					Console.WriteLine("fuck you Click");
-				};
-				this.FirstFlatElement.LeftClick += 
-				(object sender, EventArgs e) => 
-				{
-					Console.WriteLine("fuck you left");
-				};
-				this.FirstFlatElement.RightClick += 
-				(object sender, EventArgs e) => 
-				{
-					Console.WriteLine("fuck you right");
-				};
 			//---------------------------------------------
 			//finalBlow:
 			//---------------------------------------------
@@ -376,7 +357,7 @@ namespace LTW.Client
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Draw(GameTime gameTime)
 		{
-			this.GraphicsDevice.Clear(SColor.Black);
+			this.GraphicsDevice.Clear(Color.Black);
 			this.DrawBackGround();
 			this.ElementManager?.Draw(gameTime, this.SpriteBatch);
 			base.Draw(gameTime);
@@ -396,7 +377,7 @@ namespace LTW.Client
 			this.SpriteBatch.Begin();
 			this.SpriteBatch.Draw(this.BackGroundTexture, this.GameUniverse.XRectangle, 
 				this.BackGroundTexture.Bounds, 
-				SColor.White);
+				Color.White);
 			this.SpriteBatch.End();
 		}
 		#endregion
@@ -455,14 +436,17 @@ namespace LTW.Client
 		#endregion
 		//-------------------------------------------------
 		#region Set Method's Region
-		public void ActivateInputable(IInputable inputElement)
+		public void ActivateInputable(IInputable inputElement, bool focus = true)
 		{
 			if (inputElement == null || inputElement == this.InputElement)
 			{
 				return;
 			}
 			this.InputElement = inputElement;
-			this.InputElement.Focus(true);
+			if (focus)
+			{
+				this.InputElement.Focus(true);
+			}
 		}
 		public void DeactiveInputable()
 		{

@@ -130,7 +130,7 @@ namespace LTW.Controls.Elements
 		}
 		protected internal override void OnLeftClick()
 		{
-			BigFather?.ActivateInputable(this);	
+			BigFather?.ActivateInputable(this);
 			Task.Run((() =>
 			{
 				this._flat?.OnLeftClick();
@@ -458,7 +458,19 @@ namespace LTW.Controls.Elements
 		/// <summary>
 		/// focus on this input element so it get input
 		/// from the user.
+		/// this method is useful specially when you want to
+		/// force this input element to be activated before 
+		/// user click on it.
 		/// </summary>
+		/// <param name="force">
+		/// set this to true if you want to force this input
+		/// element to focus itself even if it's not
+		/// applied, or it's hidden or disabled.
+		/// please notice that if this element is disposed,
+		/// this method won't do anything.
+		/// also if you force it, it will also make itself
+		/// activated on main client.
+		/// </param>
 		public virtual void Focus(bool force)
 		{
 			var b = (!this.IsDisposed) && ((this.IsApplied && 
@@ -470,6 +482,10 @@ namespace LTW.Controls.Elements
 			if (!this.Focused)
 			{
 				this.Focused = true;
+			}
+			if (force)
+			{
+				BigFather?.ActivateInputable(this, false);
 			}
 		}
 		/// <summary>

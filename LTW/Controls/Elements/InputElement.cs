@@ -188,6 +188,7 @@ namespace LTW.Controls.Elements
 		private static Trigger _lineTrigger;
 		private static Vector2 _linerPosition;
 		private static Vector2 _linerSize;
+		private static Rectangle _linerRect;
 		private static bool _showLiner;
 
 		#endregion
