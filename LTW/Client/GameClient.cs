@@ -3,6 +3,7 @@
 // This file is subject to the terms and conditions defined in
 // file 'LICENSE', which is part of the source code.
 
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
@@ -116,16 +117,35 @@ namespace LTW.Client
 		#endregion
 		//-------------------------------------------------
 		#region Constructor's Region
-		public GameClient()
+		public GameClient(bool verify)
 		{
-			GraphicsDM = new GraphicsDeviceManager(this)
+			if (!verify)
 			{
-				PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width,
-				PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height
-			};
-			IsMouseVisible = true;
-			GameUniverse = new Universe(Window.Handle, this);
-			Content.RootDirectory = ThereIsConstants.Path.Content;
+				return;
+			}
+			try
+			{
+				GraphicsDM = new GraphicsDeviceManager(this)
+				{
+					PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width,
+					PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height
+				};
+				IsMouseVisible = true;
+				GameUniverse = new Universe(Window.Handle, this);
+				Content.RootDirectory = ThereIsConstants.Path.Content;
+			}
+			catch (NoSuitableGraphicsDeviceException ex)
+			{
+				Verified = false;
+				Console.WriteLine(ex.Message);
+				return;
+			}
+			catch (Exception ex)
+			{
+				Verified = false;
+				Console.WriteLine("Another exception:\n " + ex.Message);
+				return;
+			}
 			//---------------------------------------------
 			IsConnecting				= true;
 			IsShowingSandBox			= false;
@@ -139,6 +159,7 @@ namespace LTW.Client
 			MainMenuLoaded			  = false;
 			ReleasingDate			   = null;
 			//---------------------------------------------
+			Verified = verify;
 
 		}
 		#endregion
