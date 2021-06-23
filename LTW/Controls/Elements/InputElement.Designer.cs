@@ -311,6 +311,26 @@ namespace LTW.Controls.Elements
 		
 		#endregion
 		//-------------------------------------------------
+		#region Get Method's Region
+		public virtual bool IsShortcutKey(InputKeyEventArgs e)
+		{
+			switch (e.Key)
+			{
+				case TheMouseInput.Keys.Left:
+				case TheMouseInput.Keys.Right:
+				case TheMouseInput.Keys.PageDown:
+				case TheMouseInput.Keys.PageUp:
+				case TheMouseInput.Keys.End:
+				case TheMouseInput.Keys.Home:
+				case TheMouseInput.Keys.F6:
+				case TheMouseInput.Keys.F7:
+					return true;
+			}
+
+			return false;
+		}
+		#endregion
+		//-------------------------------------------------
 		#region Set Method's Region
 		public void ChangeAlignmation(StringAlignmation alignmation)
 		{
@@ -626,27 +646,61 @@ namespace LTW.Controls.Elements
 		/// `GameUniverse.WotoClient` and in fact 
 		/// it's `Microsoft.Xna.Framework.SdlGameWindow`). 
 		/// </param>
-		/// <param name="">
+		/// <param name="e">
 		/// our event args which contains important information about
 		/// shortcut key event.
 		/// </param>
-		public void ShortcutEvent(object sender, InputKeyEventArgs e)
+		/// <param name="ctrl">
+		/// it's `true` if user holds control key on it's keyboard.
+		/// </param>
+		public void ShortcutEvent(object sender, InputKeyEventArgs e, bool ctrl)
 		{
+			if (ctrl)
+			{
+				switch (e.Key)
+				{
+					case TheMouseInput.Keys.V:
+					{
+						PasteEvent(e);
+						break;
+					}
+				}
+			}
+		}
+		private void PasteEvent(InputKeyEventArgs e)
+		{
+			if (this.Font == null)
+			{
+				return;
+			}
 			try
 			{
-				StrongString text = ClipboardService.GetText();
-				var texts = text.Split(StrongString.SIGNED_CHAR1.ToString());
-				if (texts == null || texts.Length == default)
+				StrongString text = null;
+				if (!this.IsMultiLine)
 				{
-					return;
+					text = ClipboardService.GetText();
+					if (text == null)
+					{
+						return;
+					}
+					text = text.FixMe(this.Font, this.Width);
+					if (text == null)
+					{
+						return;
+					}
+					var texts = text.Split(StrongString.SIGNED_CHAR1.ToString());
+					if (texts == null || texts.Length == default)
+					{
+						return;
+					}
+					text = texts[default];
 				}
-				this.ChangeText(this.Text + texts[default]);
+				this.ChangeText(this.Text + text);
 			}
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
 			}
-			
 		}
 		private void _flat_MouseLeave(object sender, EventArgs e)
 		{

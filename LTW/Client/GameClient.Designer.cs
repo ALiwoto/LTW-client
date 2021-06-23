@@ -507,8 +507,6 @@ namespace LTW.Client
 		private void Window_TextInput(object sender, TextInputEventArgs e)
 		{
 			this.InputElement?.InputEvent(sender, e);
-			//this.FirstFlatElement.ChangeText(
-				//this.FirstFlatElement.Text.Append(e.Character, true));
 		}
 		private void Window_KeyDown(object sender, InputKeyEventArgs e)
 		{
@@ -516,11 +514,11 @@ namespace LTW.Client
 			if (k == Keys.LeftControl || k == Keys.RightControl)
 			{
 				this.IsCtrlDown = true;
-				return;
 			}
-			if (this.IsCtrlDown)
+			if (this.IsCtrlDown && 
+				(this.InputElement != null && this.InputElement.IsShortcutKey(e)))
 			{
-				this.InputElement?.ShortcutEvent(sender, e);
+				this.InputElement?.ShortcutEvent(sender, e, this.IsCtrlDown);
 			}
 		}
 		private void Window_KeyUp(object sender, InputKeyEventArgs e)

@@ -19,7 +19,8 @@ namespace LTW.Controls
         //-------------------------------------------------
 		#region Methods Region
 		void InputEvent(object sender, TextInputEventArgs e);
-		void ShortcutEvent(object sender, InputKeyEventArgs e);
+		void ShortcutEvent(object sender, InputKeyEventArgs e, bool ctrl);
+		bool IsShortcutKey(InputKeyEventArgs e);
 		void Focus();
 		void Focus(bool force);
 		void UnFocus();

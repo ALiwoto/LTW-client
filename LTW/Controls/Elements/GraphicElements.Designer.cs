@@ -1279,6 +1279,15 @@ namespace LTW.Controls.Elements
 		/// </summary>
 		/// <param name="gameTime"></param>
 		public abstract void Update(GameTime gameTime);
+		/// <summary>
+		/// Change the text of this graphic element.
+		/// </summary>
+		/// <param name="text">
+		/// the new text of this graphic element.
+		/// if it's null, you won't get any exception.
+		/// the text will be considered as an empty text and
+		/// nothing will be displayed on the element.
+		/// </param>
 		public abstract void ChangeText(in StrongString text);
 		
 		/// <summary>
