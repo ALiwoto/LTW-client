@@ -10,7 +10,7 @@ using LTW.GameObjects.WMath;
 namespace LTW.Controls.Elements
 {
     public class ElementList<T> : ListW<T> 
-        where T : GraphicElements
+        where T : GraphicElement
     {
         //-------------------------------------------------
         #region Properties Region

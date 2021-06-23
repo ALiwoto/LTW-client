@@ -20,7 +20,7 @@ using XRectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace LTW.Controls.Elements
 {
-	partial class GraphicElements
+	partial class GraphicElement
 	{
 		//-------------------------------------------------
 		#region Designing Region
@@ -267,7 +267,7 @@ namespace LTW.Controls.Elements
 		/// In most situations you have to send `this` for 
 		/// this argument.
 		/// </param>
-		public virtual void Shocker(GraphicElements child)
+		public virtual void Shocker(GraphicElement child)
 		{
 			if (this.IsDisposed || !this.Visible)
 			{
@@ -614,7 +614,16 @@ namespace LTW.Controls.Elements
 		{
 			if (BigFather.InputElement != this)
 			{
-				BigFather.DeactiveInputable();
+				if (this != BigFather.InputElement && this.IsBarren)
+				{
+					if (this is FlatElement flat)
+					{
+						if (flat.Representor != BigFather.InputElement)
+						{
+							BigFather.DeactiveInputable();
+						}
+					}
+				}
 			}
 			Task.Run((() =>
 			{
@@ -668,7 +677,16 @@ namespace LTW.Controls.Elements
 		{
 			if (BigFather.InputElement != this)
 			{
-				BigFather.DeactiveInputable();
+				if (this != BigFather.InputElement && this.IsBarren)
+				{
+					if (this is FlatElement flat)
+					{
+						if (flat.Representor != BigFather.InputElement)
+						{
+							BigFather.DeactiveInputable();
+						}
+					}
+				}
 			}
 			Task.Run((() =>
 			{
@@ -886,7 +904,7 @@ namespace LTW.Controls.Elements
 			}
 			if (this.Manager != null)
 			{
-				if (moveable is GraphicElements _e)
+				if (moveable is GraphicElement _e)
 				{
 					return this.Manager.ContainsChild(_e);
 				}
@@ -962,7 +980,7 @@ namespace LTW.Controls.Elements
 		{
 			ChangeText(customValue);
 		}
-		public virtual void SetOwner(in GraphicElements owner, in bool dont_add = false)
+		public virtual void SetOwner(in GraphicElement owner, in bool dont_add = false)
 		{
 			if (owner == null || owner.IsDisposed)
 			{
@@ -1067,7 +1085,7 @@ namespace LTW.Controls.Elements
 			}
 		}
 		/// <summary>
-		/// change the priority of this very <see cref="GraphicElements"/>, 
+		/// change the priority of this very <see cref="GraphicElement"/>, 
 		/// so it can be added in the right place of the manager.
 		/// if this element has an owner, and if the <see cref="Manager"/> 
 		/// of it's owner is not null, then it will remove itself
@@ -1121,7 +1139,7 @@ namespace LTW.Controls.Elements
 		}
 		/// <summary>
 		/// change the <see cref="ElementMovements"/> of this 
-		/// <see cref="GraphicElements"/>.
+		/// <see cref="GraphicElement"/>.
 		/// this method will set the <see cref="Movements"/> property of this
 		/// element and will add this element to the passed-by second arg.
 		/// </summary>
@@ -1167,7 +1185,7 @@ namespace LTW.Controls.Elements
 		}
 		/// <summary>
 		/// change the fucking movements of this very fucking 
-		/// <see cref="GraphicElements"/>, so it can be moved easily
+		/// <see cref="GraphicElement"/>, so it can be moved easily
 		/// (very very fucking easily) by the player.
 		/// <!--NOTICE: if -->
 		/// </summary>

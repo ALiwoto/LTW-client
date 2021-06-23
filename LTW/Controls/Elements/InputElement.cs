@@ -12,7 +12,7 @@ using WotoProvider.Enums;
 
 namespace LTW.Controls.Elements
 {
-	public partial class InputElement : GraphicElements, IInputable
+	public partial class InputElement : GraphicElement, IInputable
 	{
 		//-------------------------------------------------
         #region Constant's Region

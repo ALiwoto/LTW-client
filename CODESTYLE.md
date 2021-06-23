@@ -235,7 +235,7 @@ namespace MyNamespace
 		//-------------------------------------------------
 		#region static Properties Region
 		/// <summary>
-		/// The Big Father of the <see cref="GraphicElements"/>!
+		/// The Big Father of the <see cref="GraphicElement"/>!
 		/// </summary>
 		public static GameClient BigFather
 		{

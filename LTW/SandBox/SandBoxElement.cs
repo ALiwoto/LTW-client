@@ -11,7 +11,7 @@ using LTW.GameObjects.Resources;
 
 namespace LTW.SandBox
 {
-    public abstract partial class SandBoxElement : GraphicElements
+    public abstract partial class SandBoxElement : GraphicElement
     {
         //-------------------------------------------------
         #region Constant's Region

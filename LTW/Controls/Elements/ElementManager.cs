@@ -26,22 +26,22 @@ namespace LTW.Controls.Elements
         #endregion
         //-------------------------------------------------
         #region Properties Region
-        public ElementList<GraphicElements> VeryLowElements { get; private set; }
-        public ElementList<GraphicElements> LowElements { get; private set; }
-        public ElementList<GraphicElements> NormalElements { get; private set; }
-        public ElementList<GraphicElements> HighElements { get; private set; }
-        public ElementList<GraphicElements> VeryHighElements { get; private set; }
-        public ElementList<GraphicElements> SuperHighElements { get; private set; }
-        public ElementList<GraphicElements> BeyondHighElements { get; private set; }
-        public ElementList<GraphicElements> TopMostElements { get; private set; }
-        public ListW<ElementList<GraphicElements>> Elements { get; private set; }
+        public ElementList<GraphicElement> VeryLowElements { get; private set; }
+        public ElementList<GraphicElement> LowElements { get; private set; }
+        public ElementList<GraphicElement> NormalElements { get; private set; }
+        public ElementList<GraphicElement> HighElements { get; private set; }
+        public ElementList<GraphicElement> VeryHighElements { get; private set; }
+        public ElementList<GraphicElement> SuperHighElements { get; private set; }
+        public ElementList<GraphicElement> BeyondHighElements { get; private set; }
+        public ElementList<GraphicElement> TopMostElements { get; private set; }
+        public ListW<ElementList<GraphicElement>> Elements { get; private set; }
         public ElementList<SandBoxElement> LowSandBoxes { get; private set; }
         public ElementList<SandBoxElement> TopMostSandBoxes { get; private set; }
         public ErrorSandBox LowErrorSandBox { get; private set; }
         public ErrorSandBox TopMostErrorSandBox { get; private set; }
-        public GraphicElements Owner { get; }
+        public GraphicElement Owner { get; }
         /// <summary>
-        /// if this manager has a <see cref="GraphicElements"/> Owner,
+        /// if this manager has a <see cref="GraphicElement"/> Owner,
         /// I mean <see cref="Owner"/>, then,
         /// it cannot have error sandboxes.
         /// </summary>
@@ -54,7 +54,7 @@ namespace LTW.Controls.Elements
             HasOwner = false;
             InitializeComponent();
         }
-        public ElementManager(GraphicElements _owner_)
+        public ElementManager(GraphicElement _owner_)
         {
             Owner = _owner_;
             HasOwner = true;

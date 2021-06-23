@@ -17,7 +17,7 @@ using TheMouseInput = Microsoft.Xna.Framework.Input;
 
 namespace LTW.Controls.Elements
 {
-	partial class InputElement : GraphicElements
+	partial class InputElement : GraphicElement
 	{
 		//-------------------------------------------------
 		#region Initialize Region
