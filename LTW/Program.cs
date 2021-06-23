@@ -39,9 +39,13 @@ namespace LTW
                         // to show the single-instance has been verified.
                         Verified = true,
                     };
-                    // run the game client and
-                    // start the main menu.
-                    game.Run();
+					
+					if (game.Verified)
+					{
+						// run the game client and
+                    	// start the main menu.
+                    	game.Run();
+					}
                 }
             }
             else

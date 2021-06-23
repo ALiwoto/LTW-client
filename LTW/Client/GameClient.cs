@@ -3,6 +3,7 @@
 // This file is subject to the terms and conditions defined in
 // file 'LICENSE', which is part of the source code.
 
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
@@ -118,11 +119,24 @@ namespace LTW.Client
 		#region Constructor's Region
 		public GameClient()
 		{
-			GraphicsDM = new GraphicsDeviceManager(this)
+			if (!Verified)
 			{
-				PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width,
-				PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height
-			};
+				return;
+			}
+			try
+			{
+				GraphicsDM = new GraphicsDeviceManager(this)
+				{
+					PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width,
+					PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height
+				};
+			}
+			catch (NoSuitableGraphicsDeviceException ex)
+			{
+				Verified = false;
+				Console.WriteLine(ex.Message);
+				return;
+			}
 			IsMouseVisible = true;
 			GameUniverse = new Universe(Window.Handle, this);
 			Content.RootDirectory = ThereIsConstants.Path.Content;
