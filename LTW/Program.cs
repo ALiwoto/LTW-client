@@ -1,7 +1,7 @@
 ﻿using System;
 using LTW.Client;
 using LTW.Security;
-using LTW.Constants;
+using static LTW.Constants.ThereIsConstants;
 
 namespace LTW
 {
@@ -19,15 +19,15 @@ namespace LTW
 		{
 			Universe.SetUpUniverse();
 			// check if the game is the single one process or not.
-			if (ThereIsConstants.Actions.IsSingleOne())
+			if (Actions.IsSingleOne())
 			{
-				ThereIsConstants.AppSettings.DECoder = new DECoder();
+				AppSettings.DECoder = new DECoder();
 				// check if we can manage to create a single-one
 				// provider peeker or not.
 				// this method should try to create a memory space for us,
 				// which will be visible to another instances.
 				// ReSharper disable once InvertIf
-				if (ThereIsConstants.Actions.CreateSingleOne())
+				if (Actions.CreateSingleOne())
 				{
 					// it means the game is the single-instance,
 					// so you can now run the game.
@@ -46,7 +46,7 @@ namespace LTW
 						catch (Exception ex)
 						{
 							Console.WriteLine("Error when trying to run "+
-								"the game:" + ex.Message);
+								"the game:\n" + ex.Message);
 						}
 					}
 				}
