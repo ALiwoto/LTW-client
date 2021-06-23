@@ -134,7 +134,7 @@ namespace LTW.Controls.Moving
             {
                 if (this.MustDown)
                 {
-                    if (!GraphicElements.BigFather.IsLeftDown)
+                    if (!GraphicElement.BigFather.IsLeftDown)
                     {
                         return;
                     }

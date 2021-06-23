@@ -4,15 +4,13 @@
 // file 'LICENSE', which is part of the source code.
 
 using System;
+using Microsoft.Xna.Framework;
 using FontStashSharp;
 using WotoProvider.Interfaces;
 using LTW.Constants;
 using LTW.GameObjects.WMath;
 using LTW.GameObjects.UGW;
 using static LTW.Client.Universe;
-// ReSharper disable StringIndexOfIsCultureSpecific.1
-// ReSharper disable InconsistentNaming
-// ReSharper disable SuggestVarOrType_Elsewhere
 
 namespace LTW.Security
 {
@@ -81,34 +79,16 @@ namespace LTW.Security
 		public bool IsDisposed { get => _isDisposed; }
 		#endregion
 		//-------------------------------------------------
-		#region Constructors Region
-		/// <summary>
-		/// convert an ordinary string to the byte.
-		/// please don't use encrypted string.
-		/// </summary>
-		/// <param name="theValue"></param>
-		public StrongString(string theValue)
-		{
-			_myValue =
-				ThereIsConstants.AppSettings.DECoder.TheEncoderValue.GetBytes(theValue);
-		}
-		/// <summary>
-		/// create a new instance of a strong string by passing the 
-		/// bytes of an ordinary string value.
-		/// </summary>
-		/// <param name="theValue">
-		/// bytes of an ordinary string.
-		/// NOTICE: the ordinary string means a string which is not in coded
-		/// format.
-		/// </param>
-		public StrongString(byte[] theValue)
-		{
-			_myValue = theValue;
-		}
+		#region this Region
 		public char this[int index]
 		{
 			get
 			{
+				var v = GetValue(); 
+				if (v == null || index >= v.Length)
+				{
+					return default;
+				}
 				return GetValue()[index];
 			}
 		}
@@ -136,6 +116,32 @@ namespace LTW.Security
 				
 			}
 		}
+		#endregion
+		//-------------------------------------------------
+		#region Constructors Region
+		/// <summary>
+		/// convert an ordinary string to the byte.
+		/// please don't use encrypted string.
+		/// </summary>
+		/// <param name="theValue"></param>
+		public StrongString(string theValue)
+		{
+			_myValue =
+				ThereIsConstants.AppSettings.DECoder.TheEncoderValue.GetBytes(theValue);
+		}
+		/// <summary>
+		/// create a new instance of a strong string by passing the 
+		/// bytes of an ordinary string value.
+		/// </summary>
+		/// <param name="theValue">
+		/// bytes of an ordinary string.
+		/// NOTICE: the ordinary string means a string which is not in coded
+		/// format.
+		/// </param>
+		public StrongString(byte[] theValue)
+		{
+			_myValue = theValue;
+		}
 		~StrongString()
 		{
 			_myValue = null; 
@@ -146,11 +152,28 @@ namespace LTW.Security
 		#region Ordinary Methods Region
 		public void ChangeValue(string anotherValue)
 		{
-			_myValue = DECoder.TheEncoderValue.GetBytes(anotherValue);
+			if (DECoder != null)
+			{
+				if (DECoder.TheEncoderValue != null)
+				{
+					_myValue = DECoder.TheEncoderValue.GetBytes(anotherValue);
+				}
+			}
 		}
 		public string GetValue()
 		{
-			return DECoder.TheEncoderValue.GetString(_myValue);
+			if (DECoder != null)
+			{
+				if (DECoder.TheEncoderValue != null)
+				{
+					var v = DECoder.TheEncoderValue.GetString(_myValue);
+					if (v != null)
+					{
+						return v;
+					}
+				}
+			}
+			return string.Empty;
 		}
 		public void Dispose()
 		{
@@ -589,7 +612,6 @@ namespace LTW.Security
 				return this;
 			}
 			ListW<StrongString> finalList = new ListW<StrongString>();
-			// ReSharper disable once HeapView.ObjectAllocation
 			StrongString[] myStrings = Split(SIGNED_CHAR1.ToString());
 			StrongString[] bySpace;
 			char[] chars;
@@ -879,13 +901,25 @@ namespace LTW.Security
 			}
 			return IsSignedChar(this[_index]);
 		}
-		private bool _isVerified(in char _c)
+		public Vector2 MeasureString(SpriteFontBase f)
+		{
+			if (f == null || IsEmpty())
+			{
+				return default;
+			}
+			return f.MeasureString(this.GetValue());
+		}
+		private bool _isVerified(in char c)
 		{
 			if (Manager == null)
 			{
 				return false;
 			}
-			return Manager.Contains(_c) || IsSignedChar(in _c, true);
+			if (char.IsWhiteSpace(c))
+			{
+				return true;
+			}
+			return Manager.Contains(c) || IsSignedChar(in c, true);
 		}
 		#endregion
 		//-------------------------------------------------
@@ -950,14 +984,68 @@ namespace LTW.Security
 		}
 		public static StrongString operator +(StrongString left, StrongString right)
 		{
+			if (IsNullOrEmpty(left))
+			{
+				if (IsNullOrEmpty(right))
+				{
+					return Empty;
+				}
+				else
+				{
+					return right;
+				}
+			}
+			else
+			{
+				if (IsNullOrEmpty(right))
+				{
+					return Empty;
+				}
+			}
 			return left.GetValue() + right.GetValue();
 		}
 		public static StrongString operator +(StrongString left, string right)
 		{
+			if (IsNullOrEmpty(left))
+			{
+				if (IsNullOrEmpty(right))
+				{
+					return Empty;
+				}
+				else
+				{
+					return right;
+				}
+			}
+			else
+			{
+				if (IsNullOrEmpty(right))
+				{
+					return Empty;
+				}
+			}
 			return left.GetValue() + right;
 		}
 		public static StrongString operator +(string left, StrongString right)
 		{
+			if (IsNullOrEmpty(left))
+			{
+				if (IsNullOrEmpty(right))
+				{
+					return Empty;
+				}
+				else
+				{
+					return right;
+				}
+			}
+			else
+			{
+				if (IsNullOrEmpty(right))
+				{
+					return Empty;
+				}
+			}
 			return left + right.GetValue();
 		}
 		public static StrongString operator +(StrongString left, char right)
@@ -977,13 +1065,23 @@ namespace LTW.Security
 				{
 					if (s.Length > 0)
 					{
-						s += "\n";
+						s += SIGNED_CHAR1;
 					}
 					break;
 				}
 				default:
+				{
+					if (char.IsWhiteSpace(right))
+					{
+						if (right != SIGNED_CHAR1)
+						{
+							s += SIGNED_CHAR2.ToString();
+							break;
+						}
+					}
 					s += right.ToString();
 					break;
+				}
 			}
 			return s;
 		}

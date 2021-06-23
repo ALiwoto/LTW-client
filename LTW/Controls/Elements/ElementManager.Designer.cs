@@ -19,17 +19,17 @@ namespace LTW.Controls.Elements
         {
             //---------------------------------------------
             //news:
-            this.VeryLowElements    = new ElementList<GraphicElements>(this); // 1
-            this.LowElements        = new ElementList<GraphicElements>(this); // 2
-            this.NormalElements     = new ElementList<GraphicElements>(this); // 3
-            this.HighElements       = new ElementList<GraphicElements>(this); // 4
-            this.VeryHighElements   = new ElementList<GraphicElements>(this); // 5
-            this.SuperHighElements  = new ElementList<GraphicElements>(this); // 6
-            this.BeyondHighElements = new ElementList<GraphicElements>(this); // 7
-            this.TopMostElements    = new ElementList<GraphicElements>(this); // 8
+            this.VeryLowElements    = new ElementList<GraphicElement>(this); // 1
+            this.LowElements        = new ElementList<GraphicElement>(this); // 2
+            this.NormalElements     = new ElementList<GraphicElement>(this); // 3
+            this.HighElements       = new ElementList<GraphicElement>(this); // 4
+            this.VeryHighElements   = new ElementList<GraphicElement>(this); // 5
+            this.SuperHighElements  = new ElementList<GraphicElement>(this); // 6
+            this.BeyondHighElements = new ElementList<GraphicElement>(this); // 7
+            this.TopMostElements    = new ElementList<GraphicElement>(this); // 8
             this.LowSandBoxes       = new ElementList<SandBoxElement>(this);  // 9
             this.TopMostSandBoxes   = new ElementList<SandBoxElement>(this);  // 10
-            this.Elements           = new ListW<ElementList<GraphicElements>>()
+            this.Elements           = new ListW<ElementList<GraphicElement>>()
             {
                 this.VeryLowElements,
                 this.LowElements,
@@ -164,7 +164,7 @@ namespace LTW.Controls.Elements
         #endregion
         //-------------------------------------------------
         #region Get Method's Region
-        public bool Exists(GraphicElements _e)
+        public bool Exists(GraphicElement _e)
         {
             // check if the passed-by graphic element is an sandbox or not.
             if (_e is SandBoxBase _s)
@@ -219,7 +219,7 @@ namespace LTW.Controls.Elements
             // element, so you can get the list using it's priority.
             return GetList(_e.Priority).Exists(_e);
         }
-        public bool ContainsChild(GraphicElements _e)
+        public bool ContainsChild(GraphicElement _e)
         {
             // check if the passed-by graphic element is an sandbox or not.
             if (_e is SandBoxBase _s)
@@ -346,12 +346,12 @@ namespace LTW.Controls.Elements
             }
             return false;
         }
-        public GraphicElements[] GetArray(ElementPriority _p)
+        public GraphicElement[] GetArray(ElementPriority _p)
         {
             // get the array of the list.
             return GetList(_p).GetArray();
         }
-        public ElementList<GraphicElements> GetList(ElementPriority _p)
+        public ElementList<GraphicElement> GetList(ElementPriority _p)
         {
             // switch on the priority to get the right element list.
             return _p switch
@@ -436,7 +436,7 @@ namespace LTW.Controls.Elements
         /// The object to be added to the end of the <see cref="ElementManager"/>. The
         /// value can be null for reference types.
         /// </param>
-        public void Add(GraphicElements _e)
+        public void Add(GraphicElement _e)
         {
             // check if the passed-by graphic element already exists or not.
             if (this.Exists(_e))
@@ -568,14 +568,14 @@ namespace LTW.Controls.Elements
         /// <param name="_e">
         /// the params elements.
         /// </param>
-        public void AddRange(params GraphicElements[] _e)
+        public void AddRange(params GraphicElement[] _e)
         {
             for (int i = 0; i < _e.Length; i++)
             {
                 Add(_e[i]);
             }
         }
-        public void Remove(GraphicElements _e)
+        public void Remove(GraphicElement _e)
         {
             if (Exists(_e))
             {

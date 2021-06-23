@@ -14,7 +14,7 @@ namespace LTW.Controls.Elements
     /// The Button provider of the LTW game.
     /// this will provide you a high quality of the button.
     /// </summary>
-    public partial class ButtonElement : GraphicElements
+    public partial class ButtonElement : GraphicElement
     {
         //-------------------------------------------------
         #region Constant's Region

@@ -16,7 +16,7 @@ namespace LTW.Controls.Elements
     /// also you can use this for graphical effects such as 
     /// outline of the texts.
     /// </summary>
-    public partial class FlatElement : GraphicElements
+    public partial class FlatElement : GraphicElement
     {
         //-------------------------------------------------
         #region Constant's Region
@@ -27,6 +27,7 @@ namespace LTW.Controls.Elements
         public StrongString FixedText { get; protected set; }
         public Vector2 TextLocation { get; protected set; }
         public StringAlignmation Alignmation { get; protected set; }
+		public GraphicElement Representor { get; protected set; }
         #endregion
         //-------------------------------------------------
         #region field's Region

@@ -85,7 +85,7 @@
               <warning>
                 Do NOT use add or add range for graphic elements.
                 If you want to add a graphic elements to another one,
-                simply use their <c>SetOwner(GraphicElements)</c>
+                simply use their <c>SetOwner(GraphicElement)</c>
                 method.
               </warning>
             </addRanges>

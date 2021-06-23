@@ -241,15 +241,19 @@ namespace LTW.Controls.Elements
 		#endregion
 		//-------------------------------------------------
 		#region Set Method's Region
-		public void ChangeAlignmation(StringAlignmation alignmation)
+		public virtual void SetRepresentor(GraphicElement element)
+		{
+			this.Representor = element;
+		}
+		public virtual void ChangeAlignmation(StringAlignmation alignmation)
 		{
 			if (this.Alignmation != alignmation)
 			{
 				this.Alignmation = alignmation;
+				this.ChangeTextLocation();
 			}
-			this.ChangeTextLocation();
 		}
-		public void ChangeForeColor(in Color color, in float w)
+		public virtual void ChangeForeColor(in Color color, in float w)
 		{
 			base.ChangeForeColor(color);
 		}
@@ -292,7 +296,22 @@ namespace LTW.Controls.Elements
 		#endregion
 		//-------------------------------------------------
 		#region Get Method's Region
-		
+		public virtual Vector2 GetTextLocation()
+		{
+			return this.TextLocation;
+		}
+		public virtual Vector2 GetFinalTextLocation()
+		{
+			if (StrongString.IsNullOrEmpty(this.FixedText) ||
+				this.Font == null)
+			{
+				return this.GetTextLocation();
+			}
+
+			var l = this.GetTextLocation();
+			var fl = this.FixedText.MeasureString(this.Font);
+			return new(l.X + fl.X, l.Y);
+		}
 		#endregion
 		//-------------------------------------------------
 	}

@@ -8,7 +8,7 @@ namespace LTW.Controls.Elements
     public enum ElementMovements
     {
         /// <summary>
-        /// That means this Elements should not move at the time 
+        /// That means this Element should not move at the time 
         /// mouse downed.
         /// </summary>
         NoMovements = 0,

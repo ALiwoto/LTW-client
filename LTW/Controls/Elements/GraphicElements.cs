@@ -27,7 +27,7 @@ namespace LTW.Controls.Elements
 	/// this class is abstract.
 	/// just inherit your element from this class.
 	/// </summary>
-	public abstract partial class GraphicElements : IRes, IDisposable, IMoveable, ILocation
+	public abstract partial class GraphicElement : IRes, IDisposable, IMoveable, ILocation
 	{
 		//-------------------------------------------------
 		#region Constant's Region
@@ -53,7 +53,7 @@ namespace LTW.Controls.Elements
 		//-------------------------------------------------
 		#region static Properties Region
 		/// <summary>
-		/// The Big Father of the <see cref="GraphicElements"/>!
+		/// The Big Father of the <see cref="GraphicElement"/>!
 		/// </summary>
 		public static GameClient BigFather
 		{
@@ -95,7 +95,7 @@ namespace LTW.Controls.Elements
 		/// please do NOT use it as it is my father!!!
 		/// </summary>
 		public virtual ElementManager Manager { get; protected set; }
-		public virtual GraphicElements Owner { get; protected set; }
+		public virtual GraphicElement Owner { get; protected set; }
 		public virtual StrongString RealName { get; protected set; }
 		public virtual StrongString Name { get; protected set; }
 		public virtual StrongString Text { get; protected set; }
@@ -186,7 +186,7 @@ namespace LTW.Controls.Elements
 		#region static field's Region
 		public static readonly Vector2 DivergeVector = 
 			new(DEVERGE_VALUE, DEVERGE_VALUE);
-		internal static GraphicElements LockedElement { get; set; }
+		internal static GraphicElement LockedElement { get; set; }
 		#endregion
 		//-------------------------------------------------
 		#region event field's Region
@@ -238,7 +238,7 @@ namespace LTW.Controls.Elements
 		#endregion
 		//-------------------------------------------------
 		#region Constructor Region
-		protected GraphicElements(IRes myRes, bool isBarren = false)
+		protected GraphicElement(IRes myRes, bool isBarren = false)
 		{
 			MyRes = myRes.MyRes;
 			CurrentStatus = 1;
@@ -249,7 +249,7 @@ namespace LTW.Controls.Elements
 		/// <summary>
 		/// for <see cref="SandBox.SandBoxElement"/>
 		/// </summary>
-		protected GraphicElements()
+		protected GraphicElement()
 		{
 			CurrentStatus = 1;
 			InitializeComponent();
@@ -258,7 +258,7 @@ namespace LTW.Controls.Elements
 		#endregion
 		//-------------------------------------------------
 		#region Destructor's Region
-		~GraphicElements()
+		~GraphicElement()
 		{
 			if (Click != null)
 			{

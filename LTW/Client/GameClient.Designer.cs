@@ -5,9 +5,6 @@
 
 using System;
 using System.IO;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using WotoProvider.EventHandlers;
@@ -20,11 +17,7 @@ using LTW.Controls.Elements;
 using LTW.GameObjects.Resources;
 using LTW.SandBox.ErrorSandBoxes;
 using Microsoft.Xna.Framework.Input;
-//using FontStashSharp;
-using LTW.Security;
-using SColor = Microsoft.Xna.Framework.Color;
 using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
-using Point = Microsoft.Xna.Framework.Point;
 
 namespace LTW.Client
 {
@@ -104,13 +97,13 @@ namespace LTW.Client
 			this.FirstFlatElement.ChangeMovements(ElementMovements.VerticalMovements);
 			_f1.ChangeMovements(ElementMovements.VerticalHorizontalMovements);
 			//colors:
-			// this.FirstFlatElement.ChangeBackColor(SColor.Red);
-			this.FirstFlatElement.ChangeForeColor(SColor.DarkSeaGreen);
+			// this.FirstFlatElement.ChangeBackColor(Color.Red);
+			this.FirstFlatElement.ChangeForeColor(Color.DarkSeaGreen);
 			test.ChangeBorder(WotoProvider.Enums.ButtonColors.WhiteSmoke);
-			_f1.ChangeBackColor(new SColor(SColor.Orange, 0.5f));
-			_f2.ChangeBackColor(SColor.Blue);
-			_f2.ChangeForeColor(new SColor(SColor.Red, 0.7f));
-			//test.ChangeForeColor(SColor.Red);
+			_f1.ChangeBackColor(new Color(Color.Orange, 0.5f));
+			_f2.ChangeBackColor(Color.Blue);
+			_f2.ChangeForeColor(new Color(Color.Red, 0.7f));
+			//test.ChangeForeColor(Color.Red);
 			//enableds:
 			test.EnableMouseEnterEffect();
 			//texts:
@@ -161,6 +154,7 @@ namespace LTW.Client
 			this.FirstFlatElement.ChangeFont(this.FontManager.GetSprite(LTW_Fonts.LTW_tt_regular, 26));
 			testInput.ChangeFont(this.FontManager.GetSprite(LTW_Fonts.LTW_tt_regular, 25));
 			this.FirstFlatElement.ChangeAlignmation(StringAlignmation.MiddleCenter);
+			testInput.ChangeAlignmation(StringAlignmation.MiddleCenter);
 			//priorities:
 			this.FirstFlatElement.ChangePriority(ElementPriority.Normal);
 			testInput.ChangePriority(ElementPriority.Normal);
@@ -176,9 +170,13 @@ namespace LTW.Client
 			//movements:
 			//colors:
 			testInput.ChangeBorder(InputBorders.Goldenrod);
-			this.FirstFlatElement.ChangeForeColor(SColor.DarkSeaGreen);
+			testInput.ChangeForeColor(Color.WhiteSmoke);
+			this.FirstFlatElement.ChangeForeColor(Color.DarkSeaGreen);
 			//enableds:
+			this.FirstFlatElement.Enable(true);
+			testInput.Enable(true);
 			testInput.EnableMouseEnterEffect();
+			//testInput.Focus(true);
 			//texts:
 			this.FirstFlatElement.SetLabelText();
 			this.FirstFlatElement.SetLabelText(this.FirstFlatElement.Text);
@@ -187,7 +185,7 @@ namespace LTW.Client
 			//applyAndShow:
 			this.FirstFlatElement.Apply();
 			this.FirstFlatElement.Show();
-			test.Apply();
+			//test.Apply();
 			test.Show();
 			testInput.Apply();
 			testInput.Show();
@@ -213,9 +211,13 @@ namespace LTW.Client
 			//---------------------------------------------
 			this.GameUniverse.MouseDown		-= WotoPlanet_MouseDown;
 			this.GameUniverse.MouseUp		-= WotoPlanet_MouseUp;
+			this.Window.KeyDown				-= Window_KeyDown;
+			this.Window.KeyUp				-= Window_KeyUp;
 			this.Window.TextInput			-= Window_TextInput;
 			this.GameUniverse.MouseDown		+= WotoPlanet_MouseDown;
 			this.GameUniverse.MouseUp		+= WotoPlanet_MouseUp;
+			this.Window.KeyDown				+= Window_KeyDown;
+			this.Window.KeyUp				+= Window_KeyUp;
 			this.Window.TextInput			+= Window_TextInput;
 			//---------------------------------------------
 			#if SETVER_TEST
@@ -357,7 +359,7 @@ namespace LTW.Client
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Draw(GameTime gameTime)
 		{
-			this.GraphicsDevice.Clear(SColor.Black);
+			this.GraphicsDevice.Clear(Color.Black);
 			this.DrawBackGround();
 			this.ElementManager?.Draw(gameTime, this.SpriteBatch);
 			base.Draw(gameTime);
@@ -377,7 +379,7 @@ namespace LTW.Client
 			this.SpriteBatch.Begin();
 			this.SpriteBatch.Draw(this.BackGroundTexture, this.GameUniverse.XRectangle, 
 				this.BackGroundTexture.Bounds, 
-				SColor.White);
+				Color.White);
 			this.SpriteBatch.End();
 		}
 		#endregion
@@ -435,6 +437,29 @@ namespace LTW.Client
 		}
 		#endregion
 		//-------------------------------------------------
+		#region Set Method's Region
+		public void ActivateInputable(IInputable inputElement, bool focus = true)
+		{
+			if (inputElement == null || inputElement == this.InputElement)
+			{
+				return;
+			}
+			this.InputElement = inputElement;
+			if (focus)
+			{
+				this.InputElement.Focus(true);
+			}
+		}
+		public void DeactiveInputable()
+		{
+			if (this.InputElement != null)
+			{
+				this.InputElement?.UnFocus();
+				this.InputElement = null;
+			}
+		}
+		#endregion
+		//-------------------------------------------------
 		#region event Method's Region
 		private void WotoPlanet_MouseUp(object sender, MouseEventArgs e)
 		{
@@ -442,6 +467,7 @@ namespace LTW.Client
 			{
 				if (this.IsLeftDown)
 				{
+					this.PreviousLeftDownPoint = this.LeftDownPoint;
 					this.LeftDownPoint = null;
 					this.IsLeftDown = false;
 				}
@@ -450,6 +476,7 @@ namespace LTW.Client
 			{
 				if (this.IsRightDown)
 				{
+					this.PreviousRightDownPoint = this.RightDownPoint;
 					this.RightDownPoint = null;
 					this.IsRightDown = false;
 				}
@@ -479,8 +506,29 @@ namespace LTW.Client
 
 		private void Window_TextInput(object sender, TextInputEventArgs e)
 		{
-			this.FirstFlatElement.ChangeText(
-				this.FirstFlatElement.Text.Append(e.Character, true));
+			this.InputElement?.InputEvent(sender, e);
+		}
+		private void Window_KeyDown(object sender, InputKeyEventArgs e)
+		{
+			var k = e.Key;
+			if (k == Keys.LeftControl || k == Keys.RightControl)
+			{
+				this.IsCtrlDown = true;
+			}
+			if (this.IsCtrlDown && 
+				(this.InputElement != null && this.InputElement.IsShortcutKey(e)))
+			{
+				this.InputElement?.ShortcutEvent(sender, e, this.IsCtrlDown);
+			}
+		}
+		private void Window_KeyUp(object sender, InputKeyEventArgs e)
+		{
+			var k = e.Key;
+			if (k == Keys.LeftControl || k == Keys.RightControl)
+			{
+				this.IsCtrlDown = false;
+				return;
+			}
 		}
 		#endregion
 		//-------------------------------------------------
