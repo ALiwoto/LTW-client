@@ -170,7 +170,8 @@ namespace LTW.Controls.Elements
             }
         }
         public virtual InputBorders BorderColor { get; protected set; }
-        public virtual bool UseMouseEnterEffect { get; protected set; }
+        public virtual int MaxLength { get; protected set; }
+		public virtual bool UseMouseEnterEffect { get; protected set; }
         public virtual bool InMouseEnterEffect { get; protected set; }
 		public virtual bool Focused { get; protected set; }
         #endregion

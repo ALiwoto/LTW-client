@@ -872,6 +872,10 @@ namespace LTW.Controls.Elements
 		}
 		public virtual bool WasMouseIn()
 		{
+			if (!this.Visible || !this.Enabled || !this.IsApplied)
+			{
+				return false;
+			}
 			return this.IsMouseIn || this.MouseIn();
 		}
 		public virtual bool ContainsChild(in IMoveable moveable)

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using FontStashSharp;
+using TextCopy;
 using WotoProvider.Enums;
 using WotoProvider.EventHandlers;
 using LTW.Security;
@@ -86,9 +87,7 @@ namespace LTW.Controls.Elements
 				if (_showLiner)
 				{
 					spriteBatch.Begin();
-					spriteBatch.Draw(_linerTexture,
-						new Rectangle(_linerPosition.ToPoint(), _linerSize.ToPoint()),
-						Color.White);
+					spriteBatch.Draw(_linerTexture, _linerRect, Color.White);
 					spriteBatch.End();
 				}
 			}
@@ -522,10 +521,12 @@ namespace LTW.Controls.Elements
 			_lineTrigger?.SetTag(this);
 			_lineTrigger?.Start();
 			_linerPosition = default;
+			ChangeLinerRect();
 		}
 		private void ChangeLinerSize()
 		{
 			_linerSize = new(_linerTexture.Width, 3 * (this.Height / 5));
+			ChangeLinerRect();
 		}
 		private void ChangeLinerPos()
 		{
@@ -554,6 +555,11 @@ namespace LTW.Controls.Elements
 				this.RealPosition.X + LINER_EDGE : l.X;
 			}
 			_linerPosition = new(x, y);
+			ChangeLinerRect();
+		}
+		private void ChangeLinerRect()
+		{
+			_linerRect = new(_linerPosition.ToPoint(), _linerSize.ToPoint());
 		}
 		private void Liner_Tick(Trigger sender, TickHandlerEventArgs<Trigger> handler)
 		{
@@ -606,6 +612,41 @@ namespace LTW.Controls.Elements
 				}
 			}
 			this.ChangeText(this.Text.Append(e.Character, true));
+		}
+		
+		/// <summary>
+		/// event that should be called from BigFather (MainClient)
+		/// which tells us a shortcut key on user's keyboard
+		/// has been clicked. shortcut keys should be triggered
+		/// with clicking `ctrl` key on user's keyboard. like `ctrl + v`
+		/// which represents a paste shortcut key.
+		/// </summary>
+		/// <param name="sender">
+		/// the sender of our event (which is `BigFather.Window` or
+		/// `GameUniverse.WotoClient` and in fact 
+		/// it's `Microsoft.Xna.Framework.SdlGameWindow`). 
+		/// </param>
+		/// <param name="">
+		/// our event args which contains important information about
+		/// shortcut key event.
+		/// </param>
+		public void ShortcutEvent(object sender, InputKeyEventArgs e)
+		{
+			try
+			{
+				StrongString text = ClipboardService.GetText();
+				var texts = text.Split(StrongString.SIGNED_CHAR1.ToString());
+				if (texts == null || texts.Length == default)
+				{
+					return;
+				}
+				this.ChangeText(this.Text + texts[default]);
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
+			
 		}
 		private void _flat_MouseLeave(object sender, EventArgs e)
 		{

@@ -5,9 +5,6 @@
 
 using System;
 using System.IO;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using WotoProvider.EventHandlers;
@@ -173,12 +170,13 @@ namespace LTW.Client
 			//movements:
 			//colors:
 			testInput.ChangeBorder(InputBorders.Goldenrod);
+			testInput.ChangeForeColor(Color.WhiteSmoke);
 			this.FirstFlatElement.ChangeForeColor(Color.DarkSeaGreen);
 			//enableds:
 			this.FirstFlatElement.Enable(true);
 			testInput.Enable(true);
 			testInput.EnableMouseEnterEffect();
-			testInput.Focus(true);
+			//testInput.Focus(true);
 			//texts:
 			this.FirstFlatElement.SetLabelText();
 			this.FirstFlatElement.SetLabelText(this.FirstFlatElement.Text);
@@ -188,7 +186,7 @@ namespace LTW.Client
 			this.FirstFlatElement.Apply();
 			this.FirstFlatElement.Show();
 			//test.Apply();
-			//test.Show();
+			test.Show();
 			testInput.Apply();
 			testInput.Show();
 			//events:
@@ -213,9 +211,13 @@ namespace LTW.Client
 			//---------------------------------------------
 			this.GameUniverse.MouseDown		-= WotoPlanet_MouseDown;
 			this.GameUniverse.MouseUp		-= WotoPlanet_MouseUp;
+			this.Window.KeyDown				-= Window_KeyDown;
+			this.Window.KeyUp				-= Window_KeyUp;
 			this.Window.TextInput			-= Window_TextInput;
 			this.GameUniverse.MouseDown		+= WotoPlanet_MouseDown;
 			this.GameUniverse.MouseUp		+= WotoPlanet_MouseUp;
+			this.Window.KeyDown				+= Window_KeyDown;
+			this.Window.KeyUp				+= Window_KeyUp;
 			this.Window.TextInput			+= Window_TextInput;
 			//---------------------------------------------
 			#if SETVER_TEST
@@ -507,6 +509,28 @@ namespace LTW.Client
 			this.InputElement?.InputEvent(sender, e);
 			//this.FirstFlatElement.ChangeText(
 				//this.FirstFlatElement.Text.Append(e.Character, true));
+		}
+		private void Window_KeyDown(object sender, InputKeyEventArgs e)
+		{
+			var k = e.Key;
+			if (k == Keys.LeftControl || k == Keys.RightControl)
+			{
+				this.IsCtrlDown = true;
+				return;
+			}
+			if (this.IsCtrlDown)
+			{
+				this.InputElement?.ShortcutEvent(sender, e);
+			}
+		}
+		private void Window_KeyUp(object sender, InputKeyEventArgs e)
+		{
+			var k = e.Key;
+			if (k == Keys.LeftControl || k == Keys.RightControl)
+			{
+				this.IsCtrlDown = false;
+				return;
+			}
 		}
 		#endregion
 		//-------------------------------------------------

@@ -903,19 +903,23 @@ namespace LTW.Security
 		}
 		public Vector2 MeasureString(SpriteFontBase f)
 		{
-			if (f == null)
+			if (f == null || IsEmpty())
 			{
 				return default;
 			}
 			return f.MeasureString(this.GetValue());
 		}
-		private bool _isVerified(in char _c)
+		private bool _isVerified(in char c)
 		{
 			if (Manager == null)
 			{
 				return false;
 			}
-			return Manager.Contains(_c) || IsSignedChar(in _c, true);
+			if (char.IsWhiteSpace(c))
+			{
+				return true;
+			}
+			return Manager.Contains(c) || IsSignedChar(in c, true);
 		}
 		#endregion
 		//-------------------------------------------------
@@ -980,14 +984,68 @@ namespace LTW.Security
 		}
 		public static StrongString operator +(StrongString left, StrongString right)
 		{
+			if (IsNullOrEmpty(left))
+			{
+				if (IsNullOrEmpty(right))
+				{
+					return Empty;
+				}
+				else
+				{
+					return right;
+				}
+			}
+			else
+			{
+				if (IsNullOrEmpty(right))
+				{
+					return Empty;
+				}
+			}
 			return left.GetValue() + right.GetValue();
 		}
 		public static StrongString operator +(StrongString left, string right)
 		{
+			if (IsNullOrEmpty(left))
+			{
+				if (IsNullOrEmpty(right))
+				{
+					return Empty;
+				}
+				else
+				{
+					return right;
+				}
+			}
+			else
+			{
+				if (IsNullOrEmpty(right))
+				{
+					return Empty;
+				}
+			}
 			return left.GetValue() + right;
 		}
 		public static StrongString operator +(string left, StrongString right)
 		{
+			if (IsNullOrEmpty(left))
+			{
+				if (IsNullOrEmpty(right))
+				{
+					return Empty;
+				}
+				else
+				{
+					return right;
+				}
+			}
+			else
+			{
+				if (IsNullOrEmpty(right))
+				{
+					return Empty;
+				}
+			}
 			return left + right.GetValue();
 		}
 		public static StrongString operator +(StrongString left, char right)
@@ -1012,8 +1070,18 @@ namespace LTW.Security
 					break;
 				}
 				default:
+				{
+					if (char.IsWhiteSpace(right))
+					{
+						if (right != SIGNED_CHAR1)
+						{
+							s += SIGNED_CHAR2.ToString();
+							break;
+						}
+					}
 					s += right.ToString();
 					break;
+				}
 			}
 			return s;
 		}
