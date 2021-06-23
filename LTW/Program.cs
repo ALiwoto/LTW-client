@@ -37,9 +37,17 @@ namespace LTW
 					var game = new GameClient(true);
 					if (game.Verified)
 					{
-						// run the game client and
-						// start the main menu.
-						game.Run();
+						try
+						{
+							// run the game client and
+							// start the main menu.
+							game.Run();
+						}
+						catch (Exception ex)
+						{
+							Console.WriteLine("Error when trying to run "+
+								"the game:" + ex.Message);
+						}
 					}
 				}
 			}

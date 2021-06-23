@@ -130,6 +130,9 @@ namespace LTW.Client
 					PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width,
 					PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height
 				};
+				IsMouseVisible = true;
+				GameUniverse = new Universe(Window.Handle, this);
+				Content.RootDirectory = ThereIsConstants.Path.Content;
 			}
 			catch (NoSuitableGraphicsDeviceException ex)
 			{
@@ -143,9 +146,6 @@ namespace LTW.Client
 				Console.WriteLine("Another exception:\n " + ex.Message);
 				return;
 			}
-			IsMouseVisible = true;
-			GameUniverse = new Universe(Window.Handle, this);
-			Content.RootDirectory = ThereIsConstants.Path.Content;
 			//---------------------------------------------
 			IsConnecting				= true;
 			IsShowingSandBox			= false;
