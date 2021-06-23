@@ -1,0 +1,36 @@
+# Last Testament of Wanderers 
+# Copyright (C) 2019 - 2021 ALiwoto
+# This file is subject to the terms and conditions defined in
+# file 'LICENSE', which is part of the source code.
+
+name: .NET-linux
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET 3
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
+    - name: Setup .NET 5.1.x
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Running
+      run: LTW/bin/Debug/net5.0/linux-x64/LTW
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
