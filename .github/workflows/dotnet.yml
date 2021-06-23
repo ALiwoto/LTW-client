@@ -23,6 +23,8 @@ jobs:
         dotnet-version: 5.0.x
     - name: Restore dependencies
       run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
     - name: Running
       run: LTW/bin/Debug/net5.0/linux-x64/LTW
     - name: Test
