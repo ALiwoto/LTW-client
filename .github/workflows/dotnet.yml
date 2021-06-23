@@ -24,6 +24,8 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
+    - name: Running
+      run: LTW/bin/Debug/net5.0/linux-x64/LTW
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
