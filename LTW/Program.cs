@@ -32,14 +32,9 @@ namespace LTW
 					// it means the game is the single-instance,
 					// so you can now run the game.
 					// so, create a new instance of the game client.
-					// ReSharper disable once HeapView.ObjectAllocation.Evident
-					using var game = new GameClient
-					{
-						// set the verified property to true,
-						// to show the single-instance has been verified.
-						Verified = true,
-					};
-
+					// set the verified property to true,
+					// to show the single-instance has been verified.
+					var game = new GameClient(true);
 					if (game.Verified)
 					{
 						// run the game client and

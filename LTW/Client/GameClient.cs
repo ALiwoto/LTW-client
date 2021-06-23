@@ -117,9 +117,9 @@ namespace LTW.Client
 		#endregion
 		//-------------------------------------------------
 		#region Constructor's Region
-		public GameClient()
+		public GameClient(bool verify)
 		{
-			if (!Verified)
+			if (!verify)
 			{
 				return;
 			}
@@ -159,6 +159,7 @@ namespace LTW.Client
 			MainMenuLoaded			  = false;
 			ReleasingDate			   = null;
 			//---------------------------------------------
+			Verified = verify;
 
 		}
 		#endregion
