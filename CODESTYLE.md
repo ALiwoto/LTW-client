@@ -7,7 +7,7 @@ As the LTW project gains more traction and becomes more widely used, we aim to p
 Tab characters (\0x09) **should** be used in code. All indentation should be done with Tab Size of 4.
 ## Bracing
 Open braces should always be at the beginning of the line after the statement that begins the block. Contents of the brace should be indented by 4 spaces. Single statements **should** have braces. For example:
-```cs
+```csharp
 if (someExpression)
 {
 	DoSomething();
@@ -44,7 +44,7 @@ switch (someExpression)
 ```
 
 Braces also **should** be used for single statement blocks immediately following a `for`, `foreach`, `if`, `do`, etc. The single statement block should always be on the following line and indented by Tab. This increases code readability and maintainability.
-```
+```csharp
 for (int i = 0; i < 100; ++i)
 {
 	DoSomething(i);
@@ -53,7 +53,7 @@ for (int i = 0; i < 100; ++i)
 
 ## Single line property statements
 Single line property statements can have braces that begin and end on the same line. This should only be used for simple property statements.  Add a single space before and after the braces.
-```
+```csharp
 public class Foo
 {
 	int bar1;
@@ -72,7 +72,7 @@ public class Foo
 Comments **should** be used to describe intention, algorithmic overview, and/or logical flow.  It would be ideal if, from reading the comments alone, someone other than the author could understand a function's intended behavior and general operation. While there are no minimum comment requirements (and certainly some very small routines need no commenting at all), it is best that most routines have comments reflecting the programmer's intent and approach.
 
 Comments must provide added value or explanation to the code. Simply describing the code is not helpful or useful.
-```
+```csharp
 	// Wrong
 	// Set count to 1
 	count = 1;
@@ -84,7 +84,7 @@ Comments must provide added value or explanation to the code. Simply describing 
 
 ### Copyright/License notice
 Each file **should** start with a copyright notice. This is a short statement declaring the project name and copyright notice, and directing the reader to the license document elsewhere in the project. To avoid errors in doc comment builds, avoid using triple-slash doc comments.
-```
+```csharp
 // Last Testament of Wanderers 
 // Copyright (C) 2019 - 2021 ALiwoto
 // This file is subject to the terms and conditions defined in
@@ -93,7 +93,7 @@ Each file **should** start with a copyright notice. This is a short statement de
 
 ### Documentation Comments
 All methods should use XML doc comments. For internal dev comments, the `<devdoc>` tag should be used.
-```
+```csharp
 public class Foo 
 {
 	/// <summary>Public stuff about the method</summary>
@@ -108,7 +108,7 @@ public class Foo
 
 ### Comment Style
 The // (two slashes) style of comment tags should be used in most situations. Wherever possible, place comments above the code instead of beside it.  Here are some examples:
-```
+```csharp
 	// This is required for WebClient to work through the proxy
 	GlobalProxySelection.Select = new WebProxy("http://itgproxy");
 
@@ -120,43 +120,50 @@ The // (two slashes) style of comment tags should be used in most situations. Wh
 Spaces improve readability by decreasing code density. Here are some guidelines for the use of space characters within code:
 
 **Do** use a single space after a comma between function arguments.
-```
+```csharp
 Console.In.Read(myChar, 0, 1);		// Right
 Console.In.Read(myChar,0,1);		// Wrong
 ```
+
 **Do not** use a space after the parenthesis and function arguments.
-```
+```csharp
 CreateFoo(myChar, 0, 1);			// Right
 CreateFoo( myChar, 0, 1 );			// Wrong
 ```
+
 **Do not** use spaces between a function name and parentheses.
-```
+```csharp
 CreateFoo()							// Right
 CreateFoo ()						// Wrong
 ```
+
 **Do not** use spaces inside brackets.
-```
+```csharp
 x = dataArray[index];				// Right
 x = dataArray[ index ];				// Wrong
 ```
+
 **Do** use a single space before flow control statements.
-```
+```csharp
 while (x == y)						// Right
 while(x==y)							// Wrong
 ```
+
 **Do** use a single space before and after binary operators.
-```
+```csharp
 if (x == y)							// Right
 if (x==y)							// Wrong
 ```
+
 **Do not** use a space between a unary operator and the operand.
-```
+```csharp
 ++i;								// Right
 ++ i;								// Wrong
 ```
+
 **Do not** use a space before a semi-colon. 
 **Do** use a space after a semi-colon if there is more on the same line.
-```
+```csharp
 for (int i = 0; i < 100; ++i)		// Right
 for (int i=0 ; i<100 ; ++i)			// Wrong
 ```
@@ -180,48 +187,82 @@ In addition, the goal is to have clean, readable source. Code legibility should 
 * Source files should be given the name of the public type in the file.
 * Directory names should follow the namespace for the class after `LTW`. For example, one would expect to find the public class `LTW.Constants.WotoTools` in **LTW\Constants\WotoTools.cs**.
 * Class members should be grouped logically, and encapsulated into regions:
+```csharp
+//-------------------------------------------------
+#region Constant's Region
+	// some members here
+#endregion
+//-------------------------------------------------
+#region static Properties Region
+	// some members here
+#endregion
+//-------------------------------------------------
+#region Properties Region
+	// some members here
+#endregion
+//-------------------------------------------------
+#region static field's Region
+	// some members here
+#endregion
+//-------------------------------------------------
+#region field's Region
+	// some members here
+#endregion
+//-------------------------------------------------
+#region static event field's Region
+	// some members here
+#endregion
+//-------------------------------------------------
+#region event field's Region
+	// some members here
+#endregion
+//-------------------------------------------------
+#region Constructor's Region
+	// some members here
+#endregion
+//-------------------------------------------------
+#region Destructor's Region
+	// some members here
+#endregion
+//-------------------------------------------------
 ```
-//-------------------------------------------------
-Constant's Region
-//-------------------------------------------------
-static Properties Region
-//-------------------------------------------------
-Properties Region
-//-------------------------------------------------
-static field's Region
-//-------------------------------------------------
-field's Region
-//-------------------------------------------------
-static event field's Region
-//-------------------------------------------------
-event field's Region
-//-------------------------------------------------
-Constructor's Region
-//-------------------------------------------------
-Destructor's Region
-//-------------------------------------------------
-```
+
 and as for methods:
+```csharp
+//-------------------------------------------------
+#region Initialize Method's Region
+	// some methods here
+#endregion
+//-------------------------------------------------
+#region Graphical Method's Region
+	// some methods here
+#endregion
+//-------------------------------------------------
+#region event Method's Region
+	// some methods here
+#endregion
+//-------------------------------------------------
+#region overrided Method's Region
+	// some methods here
+#endregion
+//-------------------------------------------------
+#region ordinary Method's Region
+	// some methods here
+#endregion
+//-------------------------------------------------
+#region Get Method's Region
+	// some methods here
+#endregion
+//-------------------------------------------------
+#region Set Method's Region
+	// some methods here
+#endregion
+//-------------------------------------------------
 ```
-//-------------------------------------------------
-Initialize Method's Region
-//-------------------------------------------------
-Graphical Method's Region
-//-------------------------------------------------
-event Method's Region
-//-------------------------------------------------
-overrided Method's Region
-//-------------------------------------------------
-ordinary Method's Region
-//-------------------------------------------------
-Get Method's Region
-//-------------------------------------------------
-Set Method's Region
-//-------------------------------------------------
-```
+
 * lines should be used between regions, until the 60th character of that line.
 * Using statements **should** be before the namespace declaration.
-```
+```csharp
 using System;
 
 namespace MyNamespace 
